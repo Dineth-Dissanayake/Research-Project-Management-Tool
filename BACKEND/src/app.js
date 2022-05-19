@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from "express";
 import cors from "cors";
-//import logger from './utils/logger';
+import {connect} from "./utils/database.connection";
 
 const app = express();
 const PORT = process.env.PORT || "8050";
@@ -16,4 +16,5 @@ app.get("/", (req, res, next) => {
 
 app.listen(PORT, () => {
     console.log('🚀 SERVER IS UP AND RUNNING ON PORT :', PORT);
+    connect();
 });
