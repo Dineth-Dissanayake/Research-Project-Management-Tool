@@ -1,0 +1,13 @@
+{
+  "name": "BACKEND",
+  "version": "1.0.0",
+  "description": "Research-Project-Management-Tool",
+  "main": "index.js",
+  "author": "Dineth, Hirosh, Manthika, Kavitha",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/node": "^7.17.10"
+  }
+}
