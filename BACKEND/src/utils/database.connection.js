@@ -9,7 +9,10 @@ const connect = async () => {
     if (database) return;
 
     mongoose
-        .connect(MONGODB_URL)
+        .connect(MONGODB_URL, {
+            useNewUrlParser : true,
+            useUnifiedTopology : true
+        })
         .then((connection) => {
             database = connection;
             console.log("🆗 DATABASE SYNCED")
