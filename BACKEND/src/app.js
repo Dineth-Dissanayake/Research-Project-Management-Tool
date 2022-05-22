@@ -1,18 +1,20 @@
 import 'dotenv/config';
 import express from "express";
+import bodyParser from "body-parser";
 import cors from "cors";
 import {connect} from "./utils/database.connection";
 
 const app = express();
 const PORT = process.env.PORT || "8050";
 
+//APP MIDDLEWARE
+app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json({ limit: "20mb" }));
 
-app.get("/", (req, res, next) => {
-    res.send("<h2>🈯 Research Project Management Tool</h2>");
-    next();
-})
+//IMPORT ROUTES
+const markingSchemaRoutes = require('./api/routes/markingSchema.r');
+app.use(markingSchemaRoutes);
 
 app.listen(PORT, () => {
     console.log('🚀 SERVER IS UP AND RUNNING ON PORT :', PORT);
