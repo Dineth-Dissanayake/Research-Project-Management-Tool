@@ -3,16 +3,13 @@
   "version": "1.0.0",
   "description": "Research-Project-Management-System",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
-
   "author": "Dineth, Hirosh, Manthika, Kavitha",
   "license": "ISC",
-
   "devDependencies": {
     "@babel/core": "^7.18.0",
     "@babel/preset-react": "^7.17.12",
@@ -24,9 +21,11 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
   },
-
   "dependencies": {
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
+    "react-toastify": "^9.0.1"
   }
 }
