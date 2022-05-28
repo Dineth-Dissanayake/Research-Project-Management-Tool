@@ -1,5 +1,14 @@
 import React from "react";
-import ReactDom from 'react-dom';
-import APP from "./App";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+//import reportWebVitals from "./reportWebVitals";
 
-ReactDom.render(<APP/>, document.getElementById("root"));
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
