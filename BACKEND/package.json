@@ -1,25 +1,23 @@
 {
-  "name": "BACKEND",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Research-Project-Management-Tool",
-  "main": "index.js",
-  "author": "Dineth, Hirosh, Manthika, Kavitha",
-  "license": "MIT",
-  "private": false,
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/app.js"
+    "dev": "nodemon app.js"
+  
   },
-  "devDependencies": {
-    "@babel/core": "^7.17.12",
-    "@babel/node": "^7.17.10",
-    "@babel/preset-env": "^7.17.12",
-    "nodemon": "^2.0.16"
-  },
+  "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
     "express": "^4.18.1",
-    "mongoose": "^6.3.3"
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4"
   }
 }
