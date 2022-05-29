@@ -1,3 +1,0 @@
-All Pages displaying parts files(components) add to this folder. 
-
-Create files in ".jsx" format. 
