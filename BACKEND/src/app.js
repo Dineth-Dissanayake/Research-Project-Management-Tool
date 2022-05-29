@@ -16,6 +16,10 @@ app.use(express.json({ limit: "20mb" }));
 const markingSchemaRoutes = require('./api/routes/markingSchema.r');
 app.use(markingSchemaRoutes);
 
+// const registerSchemaRoutes = require('./api/routes/register.r');
+// app.use(registerSchemaRoutes);
+app.use("/api", require("./api/routes/user.auth.r"));
+
 app.listen(PORT, () => {
     console.log('🚀 SERVER IS UP AND RUNNING ON PORT :', PORT);
     connect();
