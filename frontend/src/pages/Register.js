@@ -1,29 +1,49 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import{ToastContainer,toast} from "react-toastify";
+
+import AuthContext from "../context/AuthContext";
+import ToastContext from "../context/ToastContext";
 
 
 const Register=()=>{
 
+    const { toast } = useContext(ToastContext);
+    const { registerUser } = useContext(AuthContext);
+
     const [credentials, setCredentials] = useState({
+        name: "",
         email: "",
         password: "",
+        confirmPassword: "",
     });
-
-
+    
     const handleInputChange = (event) => {
         const { name, value } = event.target;
     
         setCredentials({ ...credentials, [name]: value });
     };
     
-      
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!credentials.email || !credentials.password) {
-            toast.error("please enter all the required fields!");
-            return;
+    
+        if (
+          !credentials.name ||
+          !credentials.email ||
+          !credentials.password ||
+          !credentials.confirmPassword
+        ) {
+          toast.error("Please enter all the required fields!");
+          return;
         }
+    
+        if (credentials.password !== credentials.confirmPassword) {
+          toast.error("Password do not match!");
+          return;
+        }
+    
+        const userData = { ...credentials, confirmPassword: undefined };
+
+        registerUser(userData);
     };
 
     return (
@@ -32,11 +52,11 @@ const Register=()=>{
 
             <form onSubmit={handleSubmit}>
             
-                <div class="form-group">
-                    <label for="nameInput" class="form-label mt-4"> Your Name </label>
+                <div className="form-group">
+                    <label htmlFor="nameInput" className="form-label mt-4"> Your Name </label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="nameInput"
                         name="name"
                         value={credentials.name}
@@ -46,11 +66,11 @@ const Register=()=>{
                     />
                 </div>
 
-                <div class="form-group">
-                    <label for="emailInput" class="form-label mt-4"> Email address </label>
+                <div className="form-group">
+                    <label htmlFor="emailInput" className="form-label mt-4"> Email address </label>
                     <input
                         type="email"
-                        class="form-control"
+                        className="form-control"
                         id="emailInput"
                         aria-describedby="emailHelp"
                         name="email"
@@ -61,11 +81,11 @@ const Register=()=>{
                     />
                 </div>
         
-                <div class="form-group">
-                    <label for="passwordInput" class="form-label mt-4"> Password </label>
+                <div className="form-group">
+                    <label htmlFor="passwordInput" className="form-label mt-4"> Password </label>
                     <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         id="passwordInput"
                         name="password"
                         value={credentials.password}
@@ -75,11 +95,11 @@ const Register=()=>{
                     />
                 </div>
 
-                <div class="form-group">
-                    <label for="confirmPassword" class="form-label mt-4"> Confirm Password </label>
+                <div className="form-group">
+                    <label htmlFor="confirmPassword" className="form-label mt-4"> Confirm Password </label>
                     <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         id="confirmPassword"
                         name="confirmPassword"
                         value={credentials.confirmPassword}
@@ -99,7 +119,7 @@ const Register=()=>{
 
             </form>
         </>
-    )
+    );
 };
 
 
