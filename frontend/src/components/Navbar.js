@@ -25,6 +25,12 @@ const Navbar = ({title = "Research-Project-Management-Tool"}) => {
         <ul className="navbar-nav ms-auto">
           {user ? (
             <>
+              <li className="nav-item">
+                <Link className='nav-link' to="/topics-list">Topics List</Link>
+              </li>
+              <li className="nav-item">
+                <Link className='nav-link' to="/marking-schema">Marking Schema</Link>
+              </li>
               <li className="nav-item" onClick={() => {
                 setUser(null);
                 localStorage.clear();
@@ -33,6 +39,7 @@ const Navbar = ({title = "Research-Project-Management-Tool"}) => {
               }}>
                 <button className='btn btn-danger'>Logout</button>
               </li>
+              
             </>
           ): (
             <>
