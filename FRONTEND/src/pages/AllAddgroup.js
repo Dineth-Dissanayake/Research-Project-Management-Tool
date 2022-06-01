@@ -61,7 +61,7 @@ const AllAddgroup = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    const newSearchAddgroup = groups.filter((addgroup) =>
+    const newSearchAddgroup = addgroups.filter((addgroup) =>
       addgroup.name.toLowerCase().includes(searchInput.toLowerCase())
     );
     console.log(newSearchAddgroup);
@@ -131,6 +131,25 @@ const AllAddgroup = () => {
                     ))}
                   </tbody>
                 </table>
+                <div class="container1">
+                {addgroups.map((addgroup) => (
+                      <tr
+                        key={addgroup._id}
+                        onClick={() => {
+                          setModalData({});
+                          setModalData(addgroup);
+                          setShowModal(true);
+                        }}
+                      >
+                      
+                        <div className="form-group1" >{addgroup.groupid}</div>
+                        <div className="form-group2">member 1 : {addgroup.mem1}</div>
+                        <div className="form-group2">member 2 : {addgroup.mem2}</div>
+                        <div className="form-group2">member 3 : {addgroup.mem3}</div>
+                        <div className="form-group2">member 4 : {addgroup.mem4}</div>
+                      </tr>
+                    ))}
+</div>
               </>
             )}
           </>

@@ -45,8 +45,11 @@ const AddGroup = () => {
 
   return (
     <>
+    <div class="container2">
+  <div class="row">
+    <div class="col1">
       <h2>Create your topic</h2>
-
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="groupidInput" className="form-label mt-4">
@@ -123,12 +126,19 @@ const AddGroup = () => {
             required
           />
         </div>
+        
         <input
           type="submit"
           value="Add topic"
-          className="btn btn-info my-2"
+          className="btn1 btn-info my-2"
         />
-      </form>
+      </form></div>
+      <div class="col">
+      
+      <img className="img1" src="/grp.png"/>
+    </div></div></div>
+      
+      
     </>
   );
 };

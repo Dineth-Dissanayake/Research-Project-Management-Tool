@@ -110,7 +110,7 @@ const RegisterTopic = () => {
         <input
           type="submit"
           value="Register Topic"
-          className="btn btn-info my-2"
+          className="btn1 btn-info my-2"
         />
       </form>
     </>
