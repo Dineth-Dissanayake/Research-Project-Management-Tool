@@ -159,7 +159,7 @@ const AllRegisterTopic = () => {
           </Link>
           <button
             className="btn btn-danger"
-            onClick={() => deleteContact(modalData._id)}
+            onClick={() => deleteRegisterTopic(modalData._id)}
           >
             Delete
           </button>
