@@ -1,27 +1,28 @@
-import {Routes as Switch, Route} from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Layout from "./components/Layout";
-import { AuthContextProvider } from './context/AuthContext';
-import { ToastContextProvider } from './context/ToastContext';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
+//import Home from './components/pages/Home';
+import Admin from './components/pages/Admin';
+import PanelMember from './components/pages/PanelMember';
+import PanelAlocation from './components/pages/PanelAlocation';
+import AddPanel from './components/pages/AddPanel';
+import EditPanel from './components/pages/EditPanel';
 
-const App = () => {
+function App() {
   return (
-    <ToastContextProvider>
-      <AuthContextProvider>
-        <Layout>
-          <Switch>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/register" element={<Register/> } />
-          </Switch>
-        </Layout>
-      </AuthContextProvider>
-    </ToastContextProvider>
-  );
-};
+    <Router>
+      
+      <div className="App">
+          <Admin/>
+          <Route path="/panel-member" exact component={PanelMember} />
+          <Route path="/panel-management" exact component={PanelAlocation} />
+          <Route path="/add" exact component={AddPanel} />
+          <Route path="/edit/:id" exact component={EditPanel} />
+      </div>
 
+    </Router>
+  );
+}
 
 export default App;
