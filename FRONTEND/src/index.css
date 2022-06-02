@@ -5,14 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F7F7FF
-  
-  ;
+  background: #F7F7FF;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.form-label{
+  font-weight: bold;
 }
 .form-control{
   background: rgb(255, 255, 255);
@@ -29,7 +40,15 @@ code {
   border: 2px solid  #6692FF;
   border-radius: 12px;
   padding: 5px;
-  max-width: 10cm;
+  max-width: 12cm;
+}
+.container3{
+  background: rgb(255, 255, 255);
+  color: #000;
+  border: 2px solid  #6692FF;
+  border-radius: 12px;
+  padding: 80px 90px;
+  max-width: 16cm;
 }
 .form-group1{
   font-size: 20pt;
@@ -57,6 +76,20 @@ code {
     margin-left: auto;
     margin-right: auto;
     }
+    .img3{
+      width: 500px;
+      height: 400px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      }
+      .logo{
+        width: 200px;
+        height: 60px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        }
   .btn1{
     background: rgb(48,54,102);
 background: linear-gradient(90deg, rgba(48,54,102,1) 0%, rgba(62,68,118,1) 35%);
@@ -69,21 +102,31 @@ background: linear-gradient(90deg, rgba(48,54,102,1) 0%, rgba(62,68,118,1) 35%);
   top: 30px;
   }
   .btn{
-    background: #303666;
+    background:  #3E4476;
     color: #ffffff;
-    padding: 10px 40px;
+    padding: 4px 40px;
     border: 2px solid  #6692FF;
   border-radius: 12px;
+  font-size: small;
  
   
   }
   .container2{
     height: 700px;
   }
+  .col{
+    padding: 50px;
+  }
   .col1{
     background:  #ffffff    ;
     width: 530px;
     height: 670px;
+    border-radius: 12px;
+  }
+  .col2{
+    background: red;
+    width: 600px;
+    height: 100px;
     border-radius: 12px;
   }
   .heading{
@@ -92,3 +135,34 @@ background: linear-gradient(90deg, rgba(48,54,102,1) 0%, rgba(62,68,118,1) 35%);
   .heading1{
     padding: 5px 50px;
   }
+  .title {
+    font-size: 3rem;
+    display: grid;
+    place-items: center;
+  }
+  .navbar{
+background: #303666;
+  }
+  .p1{
+    padding: 10px 410px;
+    font-weight: bold;
+    font-family: cursive;
+  }
+  .ht{
+    font-family: cursive;
+    padding: 10px 335px;
+    font-weight: bold;
+  }
+
+
+  .inputfile {
+    border: 1px  #303666;    ;
+    margin-right: 12px;
+    background: rgb(255, 255, 255);
+  border: 1px solid  #6692FF;
+  border-radius: 8px;
+  padding: 10px 30px;
+  width: 400px;
+  }
+
+  

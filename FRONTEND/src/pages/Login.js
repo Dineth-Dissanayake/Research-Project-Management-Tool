@@ -39,7 +39,8 @@ const Login=()=>{
 
 
 
-    return <>
+    return( <>
+    
     <ToastContainer autoClose={2000}/>
     <h3>Login</h3>
     <form onSubmit={handleSubmit}>
@@ -79,8 +80,8 @@ const Login=()=>{
           Don't have an account ? <Link to="/register">Create One</Link>
         </p>
       </form>
-    </>;
-    
+    </>
+    );
     
     };
     export default Login;

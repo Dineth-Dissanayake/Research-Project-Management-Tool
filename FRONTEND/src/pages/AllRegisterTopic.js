@@ -62,7 +62,7 @@ const AllRegisterTopic = () => {
     event.preventDefault();
 
     const newSearchTopic = registertopics.filter((registertopic) =>
-      registertopic.name.toLowerCase().includes(searchInput.toLowerCase())
+      registertopic.groupid.toLowerCase().includes(searchInput.toLowerCase())
     );
     console.log(newSearchTopic);
     setRegisterTopics(newSearchTopic);
@@ -141,15 +141,18 @@ const AllRegisterTopic = () => {
         </Modal.Header>
 
         <Modal.Body>
-          <h3>{modalData.name}</h3>
+          <h3>{modalData.groupid}</h3>
           <p>
-            <strong>Address</strong>: {modalData.address}
+            <strong> Group ID</strong>: {modalData.groupid}
           </p>
           <p>
-            <strong>Email</strong>: {modalData.email}
+            <strong>Topic</strong>: {modalData.topic}
           </p>
           <p>
-            <strong>Phone Number</strong>: {modalData.phone}
+            <strong>Research Field</strong>: {modalData.field}
+          </p>
+          <p>
+            <strong>Description</strong>: {modalData.des}
           </p>
         </Modal.Body>
 

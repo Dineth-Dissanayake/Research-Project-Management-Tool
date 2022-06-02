@@ -45,8 +45,13 @@ const AddGroup = () => {
 
   return (
     <>
+    
     <div class="container2">
   <div class="row">
+  <div class="col">
+      
+      <img className="img2" src="/grp.png"/>
+    </div>
     <div class="col1">
       <h2 class="heading">Create Your Group</h2>
       
@@ -133,10 +138,7 @@ const AddGroup = () => {
           className="btn1 btn-info my-2"
         />
       </form></div>
-      <div class="col">
-      
-      <img className="img1" src="/grp.png"/>
-    </div></div></div>
+      </div></div>
       
       
     </>

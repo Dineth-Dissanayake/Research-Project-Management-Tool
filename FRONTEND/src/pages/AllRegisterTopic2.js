@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import ToastContext from "../context/ToastContext";
 
-const AllAddgroup2 = () => {
+const AllRegisterTopic2 = () => {
   const { toast } = useContext(ToastContext);
 
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [modalData, setModalData] = useState({});
-  const [addgroups, setAddgroups] = useState([]);
+  const [registertopics, setRegisterTopics] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
   useEffect(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/myaddgroups`, {
+      const res = await fetch(`http://localhost:8000/api/myregistertopics`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -24,7 +24,7 @@ const AllAddgroup2 = () => {
       });
       const result = await res.json();
       if (!result.error) {
-        setAddgroups(result.addgroups);
+        setRegisterTopics(result.registertopics);
         setLoading(false);
       } else {
         console.log(result);
@@ -35,10 +35,10 @@ const AllAddgroup2 = () => {
     }
   }, []);
 
-  const deleteAddgroup = async (id) => {
-    if (window.confirm("are you sure you want to delete this groups?")) {
+  const deleteRegisterTopic = async (id) => {
+    if (window.confirm("are you sure you want to delete this topic ?")) {
       try {
-        const res = await fetch(`http://localhost:8000/api/deletegroup/${id}`, {
+        const res = await fetch(`http://localhost:8000/api/deletetopic/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -46,8 +46,8 @@ const AllAddgroup2 = () => {
         });
         const result = await res.json();
         if (!result.error) {
-          setAddgroups(result.myAddgroups);
-          toast.success("Deleted contact");
+          setRegisterTopics(result.myregistertopics);
+          toast.success("Deleted topic");
           setShowModal(false);
         } else {
           toast.error(result.error);
@@ -61,92 +61,94 @@ const AllAddgroup2 = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    const newSearchAddgroup = addgroups.filter((addgroup) =>
-      addgroup.name.toLowerCase().includes(searchInput.toLowerCase())
+    const newSearchTopic = registertopics.filter((registertopic) =>
+      registertopic.groupid.toLowerCase().includes(searchInput.toLowerCase())
     );
-    console.log(newSearchAddgroup);
-    setAddgroups(newSearchAddgroup);
+    console.log(newSearchTopic);
+    setRegisterTopics(newSearchTopic);
   };
 
   return (
-    <><div class="container2">
-    <div class="row">
-      <div class="col">
-      <div>
-        <h4>Click to edit your group</h4>
-       
+    <>
+      <div><div class="container2">
+  <div class="row">
+    <div class="col">
+    <img className="img3" src="/topic1.png"/>
+        </div>
+        <div class="col">
+        <h1>Your Topics</h1>
         <hr className="my-4" />
         {loading ? (
           <Spinner splash="Loading ..." />
         ) : (
           <>
-            {addgroups.length == 0 ? (
-              <h3>No groups created yet</h3>
+            {registertopics.length == 0 ? (
+              <h3>No topics registered yet</h3>
             ) : (
               <>
+
                 <p>
-                  Your Total groups: <strong>{addgroups.length}</strong>
+                  Your Total Contacts: <strong>{registertopics.length}</strong>
                 </p>
-                
                 <div class="container1">
-                {addgroups.map((addgroup) => (
+                  
+                    {registertopics.map((registertopic) => (
                       <tr
-                        key={addgroup._id}
+                        key={registertopic._id}
                         onClick={() => {
                           setModalData({});
-                          setModalData(addgroup);
+                          setModalData(registertopic);
                           setShowModal(true);
                         }}
                       >
-                      
-                        <div className="form-group1" >{addgroup.groupid}</div>
-                        <div className="form-group2">member 1 : {addgroup.mem1}</div>
-                        <div className="form-group2">member 2 : {addgroup.mem2}</div>
-                        <div className="form-group2">member 3 : {addgroup.mem3}</div>
-                        <div className="form-group2">member 4 : {addgroup.mem4}</div>
+                        <div className="form-group1" >{registertopic.groupid}</div>
+                        <div className="form-group2">Topic : {registertopic.topic}</div>
+                        <div className="form-group2">Field : {registertopic.field}</div>
+                        <div className="form-group2">Description : {registertopic.des}</div>
+                        <p>-----------------------------------------------------------</p>
+                       <p>We will provide feedback on the status of your topic as soon as possible.  Stay updated on that.</p>
                       </tr>
                     ))}
-          </div>
+                  </div>
+                
               </>
             )}
           </>
         )}
-      </div></div>
-      <div class="col">
-        <p></p>
-<img className="img3" src="/edit.png"/>
-<p><h5>Please Note :</h5>The group details entered first will be treated as your group details. If you need to make any changes to the information entered, edit the details and inform your supervisor or co-supervisor. This is valid only for acceptable reasons.</p>
+
 </div>
-      </div></div>
+        
+        </div></div>
+      </div>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>{modalData.groupid}</Modal.Title>
+          <Modal.Title>{modalData.name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <h3>{modalData.groupid}</h3>
           <p>
-            <strong>member 1</strong>: {modalData.mem1}
+            <strong> Group ID</strong>: {modalData.groupid}
           </p>
           <p>
-            <strong>member 2</strong>: {modalData.mem2}
+            <strong>Topic</strong>: {modalData.topic}
           </p>
           <p>
-            <strong>member 3</strong>: {modalData.mem3}
+            <strong>Research Field</strong>: {modalData.field}
           </p>
           <p>
-            <strong>member 4</strong>: {modalData.mem4}
+            <strong>Description</strong>: {modalData.des}
           </p>
         </Modal.Body>
 
         <Modal.Footer>
-          <Link className="btn btn-info" to={`/editaddgroup/${modalData._id}`}>
+          <Link className="btn btn-info" to={`/edit/${modalData._id}`}>
             Edit
           </Link>
           <button
             className="btn btn-danger"
-            onClick={() => deleteAddgroup(modalData._id)}
+            onClick={() => deleteRegisterTopic(modalData._id)}
           >
             Delete
           </button>
@@ -162,4 +164,4 @@ const AllAddgroup2 = () => {
   );
 };
 
-export default AllAddgroup2;
+export default AllRegisterTopic2;

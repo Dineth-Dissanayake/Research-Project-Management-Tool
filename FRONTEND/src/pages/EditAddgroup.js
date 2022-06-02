@@ -167,7 +167,7 @@ const EditAddgroup = () => {
       </form></div>
       <div class="col">
       
-      <img className="img1" src="/grp.png"/>
+      <img className="img2" src="/grp.png"/>
     </div></div></div>
       
         </>

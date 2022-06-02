@@ -62,7 +62,7 @@ const AllAddgroup = () => {
     event.preventDefault();
 
     const newSearchAddgroup = addgroups.filter((addgroup) =>
-      addgroup.name.toLowerCase().includes(searchInput.toLowerCase())
+      addgroup.groupid.toLowerCase().includes(searchInput.toLowerCase())
     );
     console.log(newSearchAddgroup);
     setAddgroups(newSearchAddgroup);

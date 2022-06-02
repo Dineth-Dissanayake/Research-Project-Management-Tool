@@ -11,11 +11,10 @@ const Home = () => {
   return (
     <>
       <div className="jumbotron">
-        <h1>Welcome {user ? user.name : null}</h1>
-        <hr className="my-4" />
-        <a className="btn btn-info" href="#" role="button">
-          Add Contacts
-        </a>
+        <h1 className="ht">Hello !!! {user ? user.name : null}</h1>
+        <p className="p1">Welcome To The SLIIT Reasearch Management Tool</p>
+        <img className="img3" src="/r.gif"/>
+        <p className="p1"> Lets Get Started .... Good Luck For Your Project !!!</p>
       </div>
     </>
   );

@@ -1,5 +1,3 @@
-
-
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useContext } from "react";
@@ -7,13 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ToastContext from "../context/ToastContext";
 
-const Navbar = ({ title = "CMS" }) => {
+const Navbar = ({ title = "Home" }) => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
   const { toast } = useContext(ToastContext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark ">
+            <img className="logo" src="/cover.png"/>
       <div className="container-fluid">
         <Link to="/">
           <a className="navbar-brand">{title}</a>
@@ -37,7 +36,7 @@ const Navbar = ({ title = "CMS" }) => {
               <>
                 <li className="nav-item">
                   <Link to="/myregistertopics">
-                    <a className="nav-link">All Register Topics</a>
+                    <a className="nav-link">All Topics</a>
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -52,12 +51,22 @@ const Navbar = ({ title = "CMS" }) => {
                 </li>
                 <li className="nav-item">
                   <Link to="/alladdgroup">
-                    <a className="nav-link">ADD GROUPS</a>
+                    <a className="nav-link">Created Groups</a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/alladdgroup2">
-                    <a className="nav-link">ADD GROUPS2</a>
+                    <a className="nav-link">My Group</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/myregistertopics2">
+                    <a className="nav-link">My Topic</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/uploadfile">
+                    <a className="nav-link">Make Submission</a>
                   </Link>
                 </li>
                 <li
