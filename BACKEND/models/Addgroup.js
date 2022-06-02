@@ -32,7 +32,7 @@ const Addgroup = new mongoose.model("Addgroup", AddgroupSchema);
 
 const validateAddgroup = (data) => {
   const schema = Joi.object({
-    groupid: Joi.string().min(4).max(50).required(),
+    groupid: Joi.string().min(11).max(11).required(),
     mem1: Joi.string().min(4).max(100).required(),
     mem2: Joi.string().min(4).max(100).required(),
     mem3: Joi.string().min(4).max(100).required(),

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import ToastContext from "../context/ToastContext";
 
-const AllAddgroup = () => {
+const AllAddgroup2 = () => {
   const { toast } = useContext(ToastContext);
 
   const [showModal, setShowModal] = useState(false);
@@ -72,7 +72,7 @@ const AllAddgroup = () => {
     <>
       <div>
         <h1>Your Groups</h1>
-        <a href="/alladdgroup" className="btn btn-danger my-2">
+        <a href="/alladdgroup2" className="btn btn-danger my-2">
           Reload Contact
         </a>
         <hr className="my-4" />
@@ -84,36 +84,12 @@ const AllAddgroup = () => {
               <h3>No groups created yet</h3>
             ) : (
               <>
-                <form className="d-flex" onSubmit={handleSearchSubmit}>
-                  <input
-                    type="text"
-                    name="searchInput"
-                    id="searchInput"
-                    className="form-control my-2"
-                    placeholder="Search Contact"
-                    value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)}
-                  />
-                  <button type="submit" className="btn btn-info mx-2">
-                    Search
-                  </button>
-                </form>
-
                 <p>
                   Your Total groups: <strong>{addgroups.length}</strong>
                 </p>
-                <table className="table table-hover">
-                  <thead>
-                    <tr className="table-dark">
-                      <th scope="col">Group ID</th>
-                      <th scope="col">Member 1</th>
-                      <th scope="col">Member 2</th>
-                      <th scope="col">Member 3</th>
-                      <th scope="col">Member 4</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {addgroups.map((addgroup) => (
+                
+                <div class="container1">
+                {addgroups.map((addgroup) => (
                       <tr
                         key={addgroup._id}
                         onClick={() => {
@@ -122,16 +98,15 @@ const AllAddgroup = () => {
                           setShowModal(true);
                         }}
                       >
-                        <th scope="row">{addgroup.groupid}</th>
-                        <td>{addgroup.mem1}</td>
-                        <td>{addgroup.mem2}</td>
-                        <td>{addgroup.mem3}</td>
-                        <td>{addgroup.mem4}</td>
+                      
+                        <div className="form-group1" >{addgroup.groupid}</div>
+                        <div className="form-group2">member 1 : {addgroup.mem1}</div>
+                        <div className="form-group2">member 2 : {addgroup.mem2}</div>
+                        <div className="form-group2">member 3 : {addgroup.mem3}</div>
+                        <div className="form-group2">member 4 : {addgroup.mem4}</div>
                       </tr>
                     ))}
-                  </tbody>
-                </table>
-                
+</div>
               </>
             )}
           </>
@@ -181,4 +156,4 @@ const AllAddgroup = () => {
   );
 };
 
-export default AllAddgroup;
+export default AllAddgroup2;

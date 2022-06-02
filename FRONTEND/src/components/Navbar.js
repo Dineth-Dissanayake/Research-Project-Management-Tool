@@ -55,7 +55,11 @@ const Navbar = ({ title = "CMS" }) => {
                     <a className="nav-link">ADD GROUPS</a>
                   </Link>
                 </li>
-                
+                <li className="nav-item">
+                  <Link to="/alladdgroup2">
+                    <a className="nav-link">ADD GROUPS2</a>
+                  </Link>
+                </li>
                 <li
                   className="nav-item"
                   onClick={() => {

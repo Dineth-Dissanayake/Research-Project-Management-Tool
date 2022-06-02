@@ -11,6 +11,7 @@ import AllRegisterTopic from "./pages/AllRegisterTopic";
 import EditRegisterTopic from "./pages/EditRegisterTopic";
 import AddGroup from "./pages/AddGroup";
 import AllAddGroup from "./pages/AllAddgroup";
+import AllAddGroup2 from "./pages/AllAddgroup2";
 import EditAddgroup from "./pages/EditAddgroup";
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/edit/:id" element={<EditRegisterTopic />} />
             <Route path="/addgroup" element={<AddGroup />} />
             <Route path="/alladdgroup" element={<AllAddGroup />} />
+            <Route path="/alladdgroup2" element={<AllAddGroup2 />} />
             <Route path="/editaddgroup/:id" element={<EditAddgroup />} />
 
           </Switch>

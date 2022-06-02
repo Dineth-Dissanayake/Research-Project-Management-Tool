@@ -48,7 +48,7 @@ const AddGroup = () => {
     <div class="container2">
   <div class="row">
     <div class="col1">
-      <h2>Create your topic</h2>
+      <h2 class="heading">Create Your Group</h2>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -62,13 +62,13 @@ const AddGroup = () => {
             name="groupid"
             value={groupDetails.groupid}
             onChange={handleInputChange}
-            placeholder="John Doe"
+            placeholder="GRP_RXXX_Y4"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="mem1Input" className="form-label mt-4">
-            mem1 Of Person
+            Member 1 (Group Leader)
           </label>
           <input
             type="text"
@@ -77,13 +77,13 @@ const AddGroup = () => {
             name="mem1"
             value={groupDetails.mem1}
             onChange={handleInputChange}
-            placeholder="WalkStreet 05, California"
+            placeholder="University Registered Name"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="mem2Input" className="form-label mt-4">
-            mem2 Of Person
+          Member 2
           </label>
           <input
             type="text"
@@ -92,13 +92,13 @@ const AddGroup = () => {
             name="mem2"
             value={groupDetails.mem2}
             onChange={handleInputChange}
-            placeholder="WalkStreet 05, California"
+            placeholder="University Registered Name"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="mem3Input" className="form-label mt-4">
-            mem3 Of Person
+          Member 3
           </label>
           <input
             type="text"
@@ -107,13 +107,13 @@ const AddGroup = () => {
             name="mem3"
             value={groupDetails.mem3}
             onChange={handleInputChange}
-            placeholder="WalkStreet 05, California"
+            placeholder="University Registered Name"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="mem4Input" className="form-label mt-4">
-            mem4 Of Person
+          Member 4
           </label>
           <input
             type="text"
@@ -122,14 +122,14 @@ const AddGroup = () => {
             name="mem4"
             value={groupDetails.mem4}
             onChange={handleInputChange}
-            placeholder="WalkStreet 05, California"
+            placeholder="University Registered Name"
             required
           />
         </div>
         
         <input
           type="submit"
-          value="Add topic"
+          value="Create Group"
           className="btn1 btn-info my-2"
         />
       </form></div>

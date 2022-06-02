@@ -28,7 +28,7 @@ const RegisterTopic = new mongoose.model("RegisterTopic", RegisterTopicSchema);
 
 const validateRegisterTopic = (data) => {
   const schema = Joi.object({
-    groupid: Joi.string().min(4).max(50).required(),
+    groupid: Joi.string().min(11).max(11).required(),
     topic: Joi.string().min(4).max(100).required(),
     field: Joi.string().min(4).max(100).required(),
     des: Joi.string().min(4).max(100).required(),
