@@ -9,6 +9,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import MarkingSchema from './pages/supervisor/MarkingSchema';
 import TopicsList from './pages/supervisor/TopicsList';
+import TopicView from './pages/supervisor/TopicView';
+import TopicRequest from './pages/supervisor/TopicRequest';
 
 const App = () => {
   return (
@@ -21,7 +23,9 @@ const App = () => {
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/> } />
             <Route path="/marking-schema" element={<MarkingSchema/> } />
+            <Route path="/topics-request" element={<TopicRequest/> } />
             <Route path="/topics-list" element={<TopicsList/> } />
+            <Route path="/topics-view" element={<TopicView/> } />
           </Switch>
         </Layout>
       </AuthContextProvider>

@@ -1,41 +1,56 @@
-
+import {Link} from 'react-router-dom';
 
 const TopicsList=()=>{
 
     return <>
-    <div className="row justify-content-center">
-        <div className="col-lg-12">
-            <form>
-                <div className="form-row">
-                    <div className="form-group col-lg-6">
-                    <label for="inp_name">Student Name</label>
-                    <input type="text" className="form-control" id="inp_name" placeholder="Enter Name"/>
-                    </div>
-                    <div className="form-group col-lg-6">
-                    <label for="inp_id">Student ID</label>
-                    <input type="text" className="form-control" id="inp_id" placeholder="Enter Student ID"/>
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label for="inp_specialization">Specialization</label>
-                    <input type="text" className="form-control" id="inp_specialization" placeholder="Enter Specialization"/>
-                </div>
-                <div className="form-group">
-                    <label for="contact">Contact Number</label>
-                    <input type="text" className="form-control" id="contact" placeholder="Enter Contact Number"/>
-                </div>
-                <div className="form-group">
-                    <label for="topic">Topic Name</label>
-                    <input type="text" className="form-control" id="topic" placeholder="Enter Topic Name"/>
-                </div>
-                <div className="form-group">
-                    <label for="status">Topic Status</label>
-                    <input type="text" className="form-control" id="status" placeholder="Topic Status"/>
-                </div>
-            <button type="submit" className="btn btn-primary">Create Request</button>
-            </form>
-        </div>
-    </div>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                <th scope="row">1</th>
+                    <td>ITP project</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td><div class="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {/* <Link to="/topics-view"> */}
+                                <a className="dropdown-item">view topic</a>
+                            {/* </Link> */}
+                                <a className="dropdown-item">edit topic</a>
+                                <a className="dropdown-item">delete topic</a>
+                                <a className="dropdown-item">reject</a>
+                                <a className="dropdown-item">approve</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
     
     </>
 };

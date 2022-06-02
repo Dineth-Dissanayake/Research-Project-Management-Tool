@@ -25,6 +25,9 @@ const Navbar = ({title = "Research-Project-Management-Tool"}) => {
         <ul className="navbar-nav ms-auto">
           {user ? (
             <>
+            <li className="nav-item">
+                <Link className='nav-link' to="/topics-request">Topics Request</Link>
+              </li>
               <li className="nav-item">
                 <Link className='nav-link' to="/topics-list">Topics List</Link>
               </li>
