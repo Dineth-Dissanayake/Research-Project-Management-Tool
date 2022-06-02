@@ -7,7 +7,7 @@ import Admin from './components/pages/Admin';
 import PanelMember from './components/pages/PanelMember';
 import PanelAlocation from './components/pages/PanelAlocation';
 import AddPanel from './components/pages/AddPanel';
-import EditPanel from './components/pages/EditPanel';
+import EditPanel from './components/pages/EditPanel.js';
 
 function App() {
   return (
