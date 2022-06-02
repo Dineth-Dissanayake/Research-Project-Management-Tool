@@ -17,7 +17,7 @@
 
 This is a research project management tool designed for the SLIIT 4th-year research project. Through this, we hope to create this platform so that students and relevant supervisors and co-supervisors can easily engage in these activities.
 
-![fill-out-form-online-application-survey-interview-job-flat-cartoon-illustration-vector-graphic-fill-out-form-online-135757554](https://user-images.githubusercontent.com/71486601/171587545-4be85010-740e-4a4f-887e-1a01f64904e2.jpg)
+![cvr](https://user-images.githubusercontent.com/71486601/171588964-4ae88799-5fb0-40fd-9d2b-3e43b6d233c6.jpg)
 
 ## Tools and Technologies
 
