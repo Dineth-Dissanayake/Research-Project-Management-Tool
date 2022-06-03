@@ -18,7 +18,7 @@ const Topics = new Schema({
     },
     des : {
         type : String,
-        required : [true, "Contact Number is required."]
+        required : [true, "Description is required."]
     },
     PostedBy : {
         type : mongoose.Schema.Types.ObjectId,

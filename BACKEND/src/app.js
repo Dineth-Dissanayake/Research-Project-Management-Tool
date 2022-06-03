@@ -19,7 +19,7 @@ const markingSchemaRoutes = require('./api/routes/markingSchema.r');
 app.use(markingSchemaRoutes);
 const requestSupervisor = require('./api/routes/reqSupervisor.r');
 app.use(requestSupervisor);
-const topics = require('./api/routes/topics');
+const topics = require('./api/routes/topics.r');
 app.use(topics);
 
 // const registerSchemaRoutes = require('./api/routes/register.r');

@@ -1,12 +1,12 @@
 import express from "express";
 
 
-const Topics = require("../models/topics");
+const RequestTopics = require("../models/topics.m");
 const router = express.Router();
 
 //ADD Topics
 router.post('/topics/add', (req,res)=>{
-    let newTopics = new Topics(req.body);
+    let newTopics = new RequestTopics(req.body);
 
     newTopics.save((err) => {
         if(err){
@@ -23,7 +23,7 @@ router.post('/topics/add', (req,res)=>{
 
 //get Topics
 router.get('/topics', (req,res) => {
-    Topic.find().exec((err,Topic) => {
+    RequestTopics.find().exec((err,RequestTopics) => {
         if(err){
             return res.status(400).json({
                 error:err
@@ -31,7 +31,7 @@ router.get('/topics', (req,res) => {
         }
         return res.status(200).json({
             success:true,
-            existingTopic:Topic
+            existingRequestTopics:RequestTopics
         });
     });
 });
@@ -39,16 +39,16 @@ router.get('/topics', (req,res) => {
 
 //get specific Topic
 router.get("/topics/:id", (req,res) => {
-    let topicId = req.params.id;
+    let requestTopicsId = req.params.id;
 
-    Topic.findById(topicId,(err,Topic) => {
+    Topic.findById(requestTopicsId,(err,RequestTopics) => {
         if(err){
             return res.status(400).json({success:false, err});
         }
 
         return res.status(200).json({
             success:true,
-            Topic
+            RequestTopics
         });
     });
 });
@@ -56,12 +56,12 @@ router.get("/topics/:id", (req,res) => {
 
 //update Topic
 router.put('/topics/update/:id',(req,res) => {
-    Topic.findByIdAndUpdate(
+    RequestTopics.findByIdAndUpdate(
         req.params.id,
         {
             $set:req.body
         },
-        (err,Topic) => {
+        (err,RequestTopics) => {
             if(err){
                 return res.status(400).json({error:err});
             }
@@ -75,7 +75,7 @@ router.put('/topics/update/:id',(req,res) => {
 
 //delete Topic
 router.delete('/topics/delete/:id', (req,res) => {
-    Topic.findByIdAndRemove(req.params.id).exec((err,deletedTopic) => {
+    RequestTopics.findByIdAndRemove(req.params.id).exec((err,deletedTopic) => {
         if(err) return res.status(400).json({
             message:"Topic Delete Unsuccessful!👎",err
         });

@@ -1,59 +1,138 @@
-import {Link} from 'react-router-dom';
+import React, { Component} from 'react';
+import axios from "axios";
+import { Link } from "react-router-dom";
+import '../../components/supervisor/sr_style.css';
+import {Dropdown} from 'react-bootstrap';
 
-const TopicsList=()=>{
+export default class StudentRequest extends Component {
+    
+    constructor(props){
+        super(props);
+        this.state={
+            requests:[]
+        };
+    }
+    
+    componentDidMount() {
+        this.retrieveRequests();
+    }
+    
+    retrieveRequests(){
+        axios.get("http://localhost:8050/req_supervisor").then(res => {
+            if(res.data.success){
+                this.setState({
+                    requests: res.data.existingRequestSupervisor
+                });
+                console.log(this.state.requests);
+            }
+        });
+    }
+    
+    onDelete = (id) => {
+        axios.delete('http://localhost:8050/req_supervisor/delete/' +id).then((res) => {
+            alert("Request Deleted Successfully");
+            this.retrieveRequests();
+        })
+    }
 
-    return <>
-        <table class="table table-striped">
-            <thead class="thead-dark">
+    filterData(requests,searchKey){
+        const result = requests.filter((requests) => 
+        requests.specialization.toLowerCase().includes(searchKey)||
+        requests.studentName1.toLowerCase().includes(searchKey)
+        )
+        this.setState({requests:result})
+    }
+
+    handleSearchArea = (e) => {
+        const searchKey = e.currentTarget.value;
+
+        axios.get("http://localhost:8050/req_supervisor").then(res => {
+            if(res.data.success){
+                this.filterData(res.data.existingRequestSupervisor,searchKey)
+            }
+        });
+    }
+    
+
+
+    render() {
+        
+        return (
+            
+<div className="container">
+            <br></br><br></br>
+            <h4>MANAGE ALL Requests</h4>
+            <br></br><hr></hr>
+
+            <div className="row">
+                <div className="col-lg-3 mt-2 mb-2">
+                    <input
+                        className="form-control"
+                        type="search"
+                        placeholder="Search Specialization"
+                        name="searchQuery"
+                        onChange={this.handleSearchArea}>
+                    </input>
+                </div>
+            </div>
+
+            <br></br>
+
+            <table className="table table-striped">
+            <thead className="thead-dark text-center">
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Action</th>
+                        <th>#</th>
+                        <th>specialization</th>
+                        <th>topic</th>
+                        <th>student Name</th>
+                        <th>requestStatus</th>
+                        <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                
-                <tr>
-                <th scope="row">1</th>
-                    <td>ITP project</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td><div class="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {/* <Link to="/topics-view"> */}
-                                <a className="dropdown-item">view topic</a>
-                            {/* </Link> */}
-                                <a className="dropdown-item">edit topic</a>
-                                <a className="dropdown-item">delete topic</a>
-                                <a className="dropdown-item">reject</a>
-                                <a className="dropdown-item">approve</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                
-                <tr>
-                <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+            <tbody className="text-center">
+                {this.state.requests.map((requests, index) => (
+                        <tr key={index}>
+                            <td>{index+1}</td>
+                            <td>
+                                <a href={'/req_supervisor/'+requests._id} style={{ textDecoration: 'none' }}>
+                                {requests.specialization}
+                                </a>
+                            </td>
+                            <td>{requests.topic}</td>
+                            <td>{requests.studentName1}</td>
+                            <td>{requests.requestStatus}</td>
+                            <td>
+
+                            <Dropdown>
+                                <Dropdown.Toggle className="db-color" variant="info" id="dropdown-basic">
+                                    Dropdown Button
+                                </Dropdown.Toggle>
+
+                                <Dropdown.Menu>
+                                    <Dropdown.Item href={'/request-list/edit/'+requests._id}>&nbsp;View Request</Dropdown.Item>
+                                    &nbsp;
+                                    <Dropdown.Item variant="danger" onClick={() => this.onDelete(requests._id)}
+                                     href="#/action-2">&nbsp;Delete Request</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+
+                            </td>
+                        </tr> 
+                    ))}
             </tbody>
         </table>
-    
-    </>
-};
+            <br/>
+            <hr></hr>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="submit" class="btn btn-outline-primary">
+                    <Link to="/add">Add New Panel</Link>
+                </button> 
+            </div>
 
 
-export default TopicsList;
+            <br></br><br/><br/>
+</div>
+        )
+    }
+}

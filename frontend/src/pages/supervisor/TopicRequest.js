@@ -1,41 +1,98 @@
-const TopicRequest=()=>{
+import React, { Component } from 'react'
+import Container  from "react-bootstrap/Container";
+import axios from 'axios';
 
-    return <>
-        <div className="row justify-content-center">
-            <div className="col-lg-12">
-            <form>
-                <div className="form-row">
-                    <div className="form-group col-lg-6">
-                    <label for="inp_name">Student Name</label>
-                    <input type="text" className="form-control" id="inp_name" placeholder="Enter Name"/>
+export default class TopicRequest extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            groupid:"",
+            topic:"",
+            field:"",
+            des:""
+        }
+    }
+
+    handleInputChange = (e) => {
+        const {name,value} = e.target;
+
+        this.setState({
+            ...this.state,
+            [name]:value
+        })
+    }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+
+        const {groupid,topic,field,des} = this.state;
+        const data = {
+            groupid:groupid,
+            topic:topic,
+            field:field,
+            des:des
+        }
+        console.log(data);
+
+        axios.post("http://localhost:8050/topics/add",data).then((res) => {
+            if(res.data.success){
+                alert("Request Sent Successfully!")
+                this.setState(
+                    {
+                        groupid:"",
+                        topic:"",
+                        field:"",
+                        des:""
+                    }
+                )
+            }
+        })
+    }
+
+    render() {
+        return (
+            <Container>
+                <br></br><br></br><h4>ADD NEW REQUEST</h4><br></br><hr></hr><br></br>
+            <form className="row g-3">
+                    <div className="col-md-6">
+                        <label className="form-label">Group ID</label>
+                        <input type="text" className="form-control" name="groupid" placeholder="Enter Group ID"
+                            value={this.state.groupid}
+                            onChange={this.handleInputChange} required/>
                     </div>
-                    <div className="form-group col-lg-6">
-                    <label for="inp_id">Student ID</label>
-                    <input type="text" className="form-control" id="inp_id" placeholder="Enter Student ID"/>
+                    <div className="col-md-6">
+                        <label className="form-label">Selected Topic</label>
+                        <input type="text" className="form-control" name="topic" placeholder="Enter Topic"
+                            value={this.state.topic}
+                            onChange={this.handleInputChange} required/>
                     </div>
-                </div>
-                <div className="form-group">
-                    <label for="inp_specialization">Specialization</label>
-                    <input type="text" className="form-control" id="inp_specialization" placeholder="Enter Specialization"/>
-                </div>
-                <div className="form-group">
-                    <label for="contact">Contact Number</label>
-                    <input type="text" className="form-control" id="contact" placeholder="Enter Contact Number"/>
-                </div>
-                <div className="form-group">
-                    <label for="topic">Topic Name</label>
-                    <input type="text" className="form-control" id="topic" placeholder="Enter Topic Name"/>
-                </div>
-                <div className="form-group">
-                    <label for="status">Topic Status</label>
-                    <input type="text" className="form-control" id="status" placeholder="Topic Status"/>
-                </div>
-            <button type="submit" className="btn btn-primary">Create Request</button>
+
+                    <div className="col-md-6">
+                        <label className="form-label">Specific Field</label>
+                        <input type="text" className="form-control" name="field" placeholder="Enter Field"
+                            value={this.state.field}
+                            onChange={this.handleInputChange} required/>
+                    </div>
+
+                    <div className="col-md-6">
+                        <label className="form-label">Description</label>
+                        <input type="text" className="form-control" name="des" placeholder="Enter Description"
+                            value={this.state.des}
+                            onChange={this.handleInputChange} />
+                    </div>
+
+                    <br/><br/>
+                    <hr/>
+                    <br></br><br></br>
+
+                    <div className="col-12">
+                        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>ADD PANEL</button>
+                    </div>
             </form>
-            </div>
-        </div>
-    </>
-};
-export default TopicRequest;
-
-
+            <br/><br/><br/><br/>
+            </Container>
+            
+        )
+    }
+}
