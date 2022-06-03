@@ -30,7 +30,7 @@ const RequestSupervisor = new Schema({
     },
     requestStatus : {
         type : String,
-        required : false
+        required : true
     }
 });
 

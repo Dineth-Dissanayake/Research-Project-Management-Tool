@@ -1,10 +1,16 @@
-import {Link} from 'react-router-dom';
+import '../../components/supervisor/sr_style.css';
+import { Link } from 'react-router-dom';
+import {useState} from 'react';
+import { AiFillCaretDown } from "react-icons/ai";
 
-const studentRequestList=()=>{
 
+const StudentRequestList=()=>{
+    const [isActive,setIsActive] = useState(false)
     return <>
-        <table class="table table-striped">
-            <thead class="thead-dark">
+        <div className="container">
+            
+       <table className="table table-striped">
+            <thead className="thead-dark text-center">
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">First</th>
@@ -13,26 +19,28 @@ const studentRequestList=()=>{
                 <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center">
                 
                 <tr>
                 <th scope="row">1</th>
                     <td>ITP project</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                    <td><div class="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            {/* <Link to="/topics-view"> */}
-                                <a className="dropdown-item">view topic</a>
-                            {/* </Link> */}
-                                <a className="dropdown-item">edit topic</a>
-                                <a className="dropdown-item">delete topic</a>
-                                <a className="dropdown-item">reject</a>
-                                <a className="dropdown-item">approve</a>
+                    <td><div className="dropdown">
+                        <div className="dropdown-btn" id="dropdownMenuButton" onClick={e => setIsActive(!isActive)}>
+                            Dropdown button <AiFillCaretDown />
+                        </div>
+                            {isActive && (
+                            <div className="dropdown-content">
+                            <Link to="/topics-view">
+                                <div className="dropdown-item">view topic</div>
+                            </Link>
+                                <div className="dropdown-item">edit topic</div>
+                                <div className="dropdown-item">delete topic</div>
+                                <div className="dropdown-item">reject</div>
+                                <div className="dropdown-item">approve</div>
                             </div>
+                            )}
                         </div>
                     </td>
                 </tr>
@@ -51,9 +59,9 @@ const studentRequestList=()=>{
                 </tr>
             </tbody>
         </table>
-    
+        </div>
     </>
 };
 
 
-export default studentRequestList;
+export default StudentRequestList;

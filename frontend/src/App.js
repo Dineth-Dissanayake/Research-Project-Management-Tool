@@ -11,6 +11,7 @@ import MarkingSchema from './pages/supervisor/MarkingSchema';
 import TopicsList from './pages/supervisor/TopicsList';
 import TopicView from './pages/supervisor/TopicView';
 import TopicRequest from './pages/supervisor/TopicRequest';
+import StudentRequestList from './pages/supervisor/StudentRequestList';
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
             <Route path="/topics-request" element={<TopicRequest/> } />
             <Route path="/topics-list" element={<TopicsList/> } />
             <Route path="/topics-view" element={<TopicView/> } />
+            <Route path="/request-list" element={<StudentRequestList/> } />
+            
           </Switch>
         </Layout>
       </AuthContextProvider>
