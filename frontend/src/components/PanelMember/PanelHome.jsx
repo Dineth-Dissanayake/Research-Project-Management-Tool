@@ -3,7 +3,7 @@ import axios from "axios";
 import { Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default class PanelAlocation extends Component {
+export default class PanelHome extends Component {
     constructor(props){
         super(props);
 
@@ -89,7 +89,7 @@ export default class PanelAlocation extends Component {
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>
-                                <a href={'/marking/view/'+markings._id} style={{ textDecoration: 'none' }}>
+                                <a href={'/marks-view/'+markings._id} style={{ textDecoration: 'none' }}>
                                 {markings.markingSchemaName}
                                 </a>
                             </td>
@@ -97,12 +97,8 @@ export default class PanelAlocation extends Component {
                             <td>{markings.evaluateArea}</td>
                             <td>{markings.marks}</td>
                             <td>
-                                <a className="btn btn-warning" href={'/marking/edit/'+markings._id}>
-                                    <i className="fas fa-edit"></i>&nbsp;Edit
-                                </a>
-                                &nbsp;
-                                <a className="btn btn-danger" href="/marking-management" onClick={() => this.onDelete(markings._id)} >
-                                    <i className="far fa-trash-alt"></i>&nbsp;Delete
+                                <a className="btn btn-warning" href={'/marking-add/edit/'+markings._id}>
+                                    <i className="fas fa-edit"></i>&nbsp;Add Marks
                                 </a>
                             </td>
                         </tr> 
@@ -111,13 +107,6 @@ export default class PanelAlocation extends Component {
             </Table>
             <br/>
             <hr></hr>
-
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="submit" className="btn btn-outline-primary">
-                    <Link to="/marking/add">Add New Marking Schema</Link>
-                </button>
-            </div>
-
 
             <br></br><br/><br/>
         </Container>
