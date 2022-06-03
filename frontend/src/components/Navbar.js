@@ -13,6 +13,7 @@ const Navbar = ({title = "Research-Project-Management-Tool"}) => {
   const navigate = useNavigate();
 
   return (
+    // #303666
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
     <div className="container-fluid">
       <Link className='navbar-brand' to="/"> {title} </Link>
@@ -30,6 +31,9 @@ const Navbar = ({title = "Research-Project-Management-Tool"}) => {
               </li>
               <li className="nav-item">
                 <Link className='nav-link' to="/topics-list">Topics List</Link>
+              </li>
+              <li className="nav-item">
+                <Link className='nav-link' to="/marking-schema">Marking Schema</Link>
               </li>
               <li className="nav-item">
                 <Link className='nav-link' to="/marking-schema">Marking Schema</Link>

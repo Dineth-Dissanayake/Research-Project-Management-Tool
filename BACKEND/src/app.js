@@ -17,8 +17,10 @@ app.use(express.json({ limit: "20mb" }));
 //IMPORT ROUTES
 const markingSchemaRoutes = require('./api/routes/markingSchema.r');
 app.use(markingSchemaRoutes);
-const topics = require('./api/routes/topics');
-app.use(topics);
+// const requestSupervisor = require('./api/routes/reqSupervisor.r');
+// app.use(requestSupervisor);
+// const topics = require('./api/routes/topics');
+// app.use(topics);
 
 // const registerSchemaRoutes = require('./api/routes/register.r');
 // app.use(registerSchemaRoutes);
