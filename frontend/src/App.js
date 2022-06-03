@@ -29,7 +29,7 @@ const App = () => {
             <Route path="/marking-schema" element={<MarkingSchema/> } />
             <Route path="/topics-request" element={<TopicRequest/> } />
             <Route path="/topics-list" element={<TopicsList/> } />
-            <Route path="/topics-view" element={<TopicView/> } />
+            <Route path="/topics-view/:id" element={<TopicView/> } />
             <Route path="/request-list" element={<StudentRequestList/> } />
             <Route path="/request" element={<StudentRequest/> } />
             <Route path="/request-list/edit/:id" element={<StudentRequestView/> } />

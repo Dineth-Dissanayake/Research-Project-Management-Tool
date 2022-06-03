@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import '../../components/supervisor/sr_style.css';
 import {Dropdown} from 'react-bootstrap';
 
-export default class StudentRequest extends Component {
+export default class TopicsList extends Component {
     
     constructor(props){
         super(props);
@@ -18,10 +18,10 @@ export default class StudentRequest extends Component {
     }
     
     retrieveRequests(){
-        axios.get("http://localhost:8050/req_supervisor").then(res => {
+        axios.get("http://localhost:8050/topics").then(res => {
             if(res.data.success){
                 this.setState({
-                    requests: res.data.existingRequestSupervisor
+                    requests: res.data.existingRequestTopics
                 });
                 console.log(this.state.requests);
             }
@@ -29,7 +29,7 @@ export default class StudentRequest extends Component {
     }
     
     onDelete = (id) => {
-        axios.delete('http://localhost:8050/req_supervisor/delete/' +id).then((res) => {
+        axios.delete('http://localhost:8050/topics/delete/' +id).then((res) => {
             alert("Request Deleted Successfully");
             this.retrieveRequests();
         })
@@ -37,8 +37,8 @@ export default class StudentRequest extends Component {
 
     filterData(requests,searchKey){
         const result = requests.filter((requests) => 
-        requests.specialization.toLowerCase().includes(searchKey)||
-        requests.studentName1.toLowerCase().includes(searchKey)
+        requests.field.toLowerCase().includes(searchKey)||
+        requests.groupid.toLowerCase().includes(searchKey)
         )
         this.setState({requests:result})
     }
@@ -46,9 +46,9 @@ export default class StudentRequest extends Component {
     handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value;
 
-        axios.get("http://localhost:8050/req_supervisor").then(res => {
+        axios.get("http://localhost:8050/topics").then(res => {
             if(res.data.success){
-                this.filterData(res.data.existingRequestSupervisor,searchKey)
+                this.filterData(res.data.existingRequestTopics,searchKey)
             }
         });
     }
@@ -94,13 +94,13 @@ export default class StudentRequest extends Component {
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>
-                                <a href={'/req_supervisor/'+requests._id} style={{ textDecoration: 'none' }}>
-                                {requests.specialization}
+                                <a href={'/topics/'+requests._id} style={{ textDecoration: 'none' }}>
+                                {requests.groupid}
                                 </a>
                             </td>
                             <td>{requests.topic}</td>
-                            <td>{requests.studentName1}</td>
-                            <td>{requests.requestStatus}</td>
+                            <td>{requests.field}</td>
+                            <td>{requests.des}</td>
                             <td>
 
                             <Dropdown>
@@ -109,7 +109,7 @@ export default class StudentRequest extends Component {
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu>
-                                    <Dropdown.Item href={'/request-list/edit/'+requests._id}>&nbsp;View Request</Dropdown.Item>
+                                    <Dropdown.Item href={'/topics-view/'+requests._id}>&nbsp;View Request</Dropdown.Item>
                                     &nbsp;
                                     <Dropdown.Item variant="danger" onClick={() => this.onDelete(requests._id)}
                                      href="#/action-2">&nbsp;Delete Request</Dropdown.Item>
