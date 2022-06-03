@@ -3,28 +3,28 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-const markingSchemaSchema = new Schema({
+const markingSchema = new Schema({
     markingSchemaName : {
         type : String,
-        required : true
+        required: [true, "Marking Schema Name required⚠️"],
     },
     markingSchemaNumber : {
         type : String,
-        required : true
+        required: [true, "Marking Schema ID required⚠️"],
     },
     addedDate : {
         type : Date,
-        required : true
+        required: [true, "Date required⚠️"],
     },
-    markingSchemaCategory : {
+    evaluateArea : {
         type : String,
-        required : true
+        required: [true, "Evaluate Area required⚠️"],
     },
-    markingSchemaStatus : {
+    marks : {
         type : String,
-        required : true
+        required: [false, "Marks required⚠️"],
     }
 });
 
 
-module.exports = mongoose.model("MarkingSchema", markingSchemaSchema);
+module.exports = mongoose.model("MarkingSchema", markingSchema);

@@ -18,7 +18,7 @@ const Admin=()=>{
                     <Nav className="me-auto">
                         <Link className="nav-link" to="/panel-management">Panel Allocation</Link>
 
-                        <Link className="nav-link" to="/">Marking Schemes</Link>
+                        <Link className="nav-link" to="/marking-management">Marking Schemes</Link>
 
                         <Nav.Link href="#pricing">Logout</Nav.Link>
                     </Nav>

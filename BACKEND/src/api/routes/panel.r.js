@@ -38,16 +38,16 @@ router.get('/panels', (req,res) => {
 
 //get specific PANEL
 router.get("/panel/:id", (req,res) => {
-    let PanelId = req.params.id;
+    let panelID = req.params.id;
 
-    Panel.findById(PanelId,(err,Panel) => {
+    Panel.findById(panelID,(err,panel) => {
         if(err){
             return res.status(400).json({success:false, err});
         }
 
         return res.status(200).json({
             success:true,
-            Panel
+            panel
         });
     });
 });

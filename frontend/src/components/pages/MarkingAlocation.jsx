@@ -8,46 +8,47 @@ export default class PanelAlocation extends Component {
         super(props);
 
         this.state={
-            panels:[]
+            markings:[]
         };
     }
     
     componentDidMount() {
-        this.retrivePanels();
+        this.retriveMarkings();
     }
     
-    retrivePanels(){
-        axios.get("http://localhost:8050/panels").then(res => {
+    retriveMarkings(){
+        axios.get("http://localhost:8050/MarkingSchema").then(res => {
             if(res.data.success){
                 this.setState({
-                    panels: res.data.existingPanel
+                    markings: res.data.existingMarkingSchema
                 });
-                console.log(this.state.panels);
+                console.log(this.state.markings);
             }
         });
     }
     
     onDelete = (id) => {
-        axios.delete('http://localhost:8050/panel/delete/' +id).then((res) => {
-            alert("Panel Delete Successfully");
-            this.retrivePanels();
+        axios.delete('http://localhost:8050/MarkingSchema/delete/' +id).then((res) => {
+            alert("Marking Delete Successfully");
+            this.retrivemarkings();
         })
     }
 
-    filterData(panels,searchKey){
-        const result = panels.filter((panel) => 
-            panel.panelID.includes(searchKey)||
-            panel.panelType.toLowerCase().includes(searchKey)
+    filterData(markings,searchKey){
+        const result = markings.filter((marking) => 
+            marking.markingSchemaNumber.includes(searchKey)||
+            marking.markingSchemaName.toLowerCase().includes(searchKey)||
+            marking.evaluateArea.toLowerCase().includes(searchKey)
         )
-        this.setState({panels:result})
+        this.setState({markings:result})
     }
 
     handleSearchArea = (e) => {
         const searchKey = e.currentTarget.value;
 
-        axios.get("http://localhost:8050/panels").then(res => {
+        axios.get("http://localhost:8050/MarkingSchema").then(res => {
             if(res.data.success){
-                this.filterData(res.data.existingPanel,searchKey)
+                this.filterData(res.data.existingMarkingSchema,searchKey)
             }
         });
     }
@@ -56,7 +57,7 @@ export default class PanelAlocation extends Component {
         return (
         <Container>
             <br></br><br></br>
-            <h4>MANAGE ALL PANELS</h4>
+            <h4>MANAGE ALL MARKINGS</h4>
             <br></br><hr></hr>
 
             <div className="row">
@@ -76,33 +77,31 @@ export default class PanelAlocation extends Component {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Panel ID</th>
-                        <th>Member 01</th>
-                        <th>Member 02</th>
-                        <th>Member 03</th>
-                        <th>Panel Type</th>
+                        <th>Marking Schema Name</th>
+                        <th>Marking Schema Number</th>
+                        <th>Evaluate Area</th>
+                        <th>Marks</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {this.state.panels.map((panels, index) => (
+                    {this.state.markings.map((markings, index) => (
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>
-                                <a href={'/panel/'+panels._id} style={{ textDecoration: 'none' }}>
-                                {panels.panelID}
+                                <a href={'/marking/view/'+markings._id} style={{ textDecoration: 'none' }}>
+                                {markings.markingSchemaName}
                                 </a>
                             </td>
-                            <td>{panels.member1}</td>
-                            <td>{panels.member2}</td>
-                            <td>{panels.member3}</td>
-                            <td>{panels.panelType}</td>
+                            <td>{markings.markingSchemaNumber}</td>
+                            <td>{markings.evaluateArea}</td>
+                            <td>{markings.marks}</td>
                             <td>
-                                <a className="btn btn-warning" href={'/edit/'+panels._id}>
+                                <a className="btn btn-warning" href={'/marking/edit/'+markings._id}>
                                     <i className="fas fa-edit"></i>&nbsp;Edit
                                 </a>
                                 &nbsp;
-                                <a className="btn btn-danger" href="/panel-management" onClick={() => this.onDelete(panels._id)} >
+                                <a className="btn btn-danger" href="/marking-management" onClick={() => this.onDelete(markings._id)} >
                                     <i className="far fa-trash-alt"></i>&nbsp;Delete
                                 </a>
                             </td>
@@ -115,7 +114,7 @@ export default class PanelAlocation extends Component {
 
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="submit" class="btn btn-outline-primary">
-                    <Link to="/add">Add New Panel</Link>
+                    <Link to="/marking/add">Add New Marking Schema</Link>
                 </button> 
             </div>
 

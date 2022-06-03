@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Container  from "react-bootstrap/Container";
 import axios from 'axios';
 
@@ -26,7 +26,6 @@ export default class EditPanel extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-
         const id = this.props.match.params.id;
 
         const {panelID,member1,member2,member3,panelType} = this.state;
@@ -39,8 +38,7 @@ export default class EditPanel extends Component {
         }
         console.log(data);
 
-        
-        axios.put('http://localhost:8050/panel/update/' +id ,data).then((res) => {
+        axios.put('http://localhost:8050/panel/update/'+id ,data).then((res) => {
             if(res.data.success){
                 alert("Panel Updated Successfully!")
                 this.setState(
@@ -59,7 +57,7 @@ export default class EditPanel extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get('http://localhost:8050/panel/' +id).then((res) => {
+        axios.get('http://localhost:8050/panel/'+id).then((res) => {
             if(res.data.success){
                 this.setState({
                     panelID:res.data.panel.panelID,
