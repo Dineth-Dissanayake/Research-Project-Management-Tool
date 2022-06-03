@@ -1,29 +1,20 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken')
 
-const User = require("../models/User");
 
-module.exports = (req, res, next) => {
-  const authHeader = req.headers.authorization;
+const auth = (req, res, next) => {
+    try {
+        const token = req.header("Authorization")
+        if(!token) return res.status(400).json({msg: "Invalid Authentication."})
 
-  if (authHeader) {
-    const token = authHeader.split(" ")[1];
+        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+            if(err) return res.status(400).json({msg: "Invalid Authentication."})
 
-    jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
-      try {
-        if (err) {
-          return res.status(401).json({ error: "Unauthorized!" });
-        }
+            req.user = user
+            next()
+        })
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+}
 
-        const user = await User.findOne({ _id: payload._id }).select(
-          "-password"
-        );
-        req.user = user;
-        next();
-      } catch (err) {
-        console.log(err);
-      }
-    });
-  } else {
-    return res.status(403).json({ error: "Forbidden 🛑🛑" });
-  }
-};
+module.exports = auth
