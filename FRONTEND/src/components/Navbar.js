@@ -5,14 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ToastContext from "../context/ToastContext";
 
-const Navbar = ({ title = "Home" }) => {
+const Navbar = ({ title =  <img className="logo" src="/cover.png"/> }) => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
   const { toast } = useContext(ToastContext);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ">
-            <img className="logo" src="/cover.png"/>
       <div className="container-fluid">
         <Link to="/">
           <a className="navbar-brand">{title}</a>
@@ -34,40 +33,56 @@ const Navbar = ({ title = "Home" }) => {
           <ul className="navbar-nav ms-auto">
             {user ? (
               <>
-                <li className="nav-item">
-                  <Link to="/myregistertopics">
-                    <a className="nav-link">All Topics</a>
+
+              <li className="nav-item">
+                <div class="dropdown">
+                <button class="dropbtn">Create Research Groups</button>
+                <div class="dropdown-content">
+                <Link to="/addgroup">
+                    <a className="nav-link1">ADD STUDENT GROUP</a>
                   </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/registertopic">
-                    <a className="nav-link">Topic Registration</a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/addgroup">
-                    <a className="nav-link">ADD STUDENT GROUP</a>
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link to="/alladdgroup">
-                    <a className="nav-link">Created Groups</a>
+                    <a className="nav-link1">Created Groups</a>
                   </Link>
-                </li>
-                <li className="nav-item">
                   <Link to="/alladdgroup2">
-                    <a className="nav-link">My Group</a>
+                    <a className="nav-link1">My Group</a>
                   </Link>
+                </div></div>
+                  
                 </li>
-                <li className="nav-item">
+              <li className="nav-item">
+                <div class="dropdown">
+                <button class="dropbtn">Register Research Topics</button>
+                <div class="dropdown-content">
+                <Link to="/registertopic">
+                    <a className="nav-link1">Topic Registration</a>
+                  </Link>
+                  <Link to="/myregistertopics">
+                    <a className="nav-link1">All Topics</a>
+                  </Link>
                   <Link to="/myregistertopics2">
-                    <a className="nav-link">My Topic</a>
+                    <a className="nav-link1">My Topic</a>
                   </Link>
+                </div></div>
+                  
                 </li>
+                
+                
+
+                
+                
+                
                 <li className="nav-item">
-                  <Link to="/uploadfile">
-                    <a className="nav-link">Make Submission</a>
+                <div class="dropdown">
+                <button class="dropbtn">Make Your Submission</button>
+                <div class="dropdown-content">
+                <Link to="/uploadfile">
+                  
+                    <a className="nav-link1">Make Submissions</a>
                   </Link>
+                  
+                </div></div>
+                  
                 </li>
                 <li
                   className="nav-item"
@@ -78,7 +93,7 @@ const Navbar = ({ title = "Home" }) => {
                     navigate("/login", { replace: true });
                   }}
                 >
-                  <button className="btn btn-danger">Logout</button>
+                  <button className="btn5 btn-danger">Logout</button>
                 </li>
               </>
             ) : (
@@ -110,6 +125,7 @@ const Navbar = ({ title = "Home" }) => {
         </div>
       </div>
     </nav>
+    
   );
 };
 
