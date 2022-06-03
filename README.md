@@ -9,7 +9,7 @@
 
 ◾️IT20116606-Fernando W.H.K
 
-◾️IT20136710-K.M.K.R Kariyapperuma
+◾️IT20136710-Kariyapperuma K.M.K.R 
 
 ◾️IT20258030-Gunawardhana H.P.M.N
 
