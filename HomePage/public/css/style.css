@@ -78,7 +78,7 @@ hr {
   transition: all 0.8s;
 }
 #menu.navbar {
-  background: rgb(102,146,255);
+  background: linear-gradient(to right, #6372ff 0%,  #3E4476 100%);
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   height: 100px;
@@ -124,7 +124,7 @@ hr {
 .navbar .navbar-nav > .active > a,
 .navbar .navbar-nav > .active > a:hover,
 .navbar .navbar-nav > .active > a:focus {
-  background: transparent;
+  background-color: transparent;
 }
 .navbar .navbar-nav > .active > a:after,
 .navbar .navbar-nav > .active > a:hover:after,
@@ -220,7 +220,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(../img/intro-bg.jpg) center center no-repeat;
+  background: url(../img/cvr.jpg) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -373,7 +373,7 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, #6372ff 0%,  #3E4476 100%);
   color: rgba(255, 255, 255, 0.75);
 }
 #contact .section-title {

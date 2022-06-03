@@ -4,22 +4,22 @@
     "paragraph": "Forth Year Research Project Management Tool"
   },
   "About": {
-    "paragraph": " labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comm"
+    "paragraph": " We have introduced this term specifically for the SLIIT Fourth Year Research Project.  Here you will be able to easily manage your research project.  Here you can easily manage your research project online by providing solutions to existing problems.  This allows students, supervisors, co supervisors and panel members to easily interact with each other and get things done."
     
   },
   "Gallery": [
     {
-      "title": "Project Title",
+      "title": "",
       "largeImage": "img/portfolio/01-large.jpg",
       "smallImage": "img/portfolio/01-large.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "",
       "largeImage": "img/portfolio/02-large.jpg",
       "smallImage": "img/portfolio/02-large.jpg"
     },
     {
-      "title": "Project Title",
+      "title": "",
       "largeImage": "img/portfolio/03-large.jpg",
       "smallImage": "img/portfolio/03-large.jpg"
     }
@@ -27,33 +27,26 @@
   
 
   "Contact": {
-    "address": "4321 California St, San Francisco, CA 12345 ",
+    "address": " SLIIT Malabe Campus, New Kandy Rd, Malabe 10115 ",
     "phone": "+1 123 456 1234",
-    "email": "info@company.com",
-    "facebook": "fb.com",
-    "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "email": "sliiit@RPM.com"
   },
   "Features": [
     {
       "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Chat With Group"
     },
     {
       "icon": "fa fa-cogs",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Manage Project"
     },
     {
       "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Manage Research Groups"
     },
     {
       "icon": "fa fa-info",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Keep Updated"
     }
   ]
 }
