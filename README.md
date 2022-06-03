@@ -5,7 +5,7 @@
 
 ## Group Details
 
-◾️IT20272104-Dissanayaka D.D.D [Group Leader]
+◾️IT20272104-Dissanayaka D.D.D [Group-Leader]
 
 ◾️IT20116606-Fernando W.H.K
 
