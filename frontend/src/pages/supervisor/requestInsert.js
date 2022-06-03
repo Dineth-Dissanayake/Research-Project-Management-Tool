@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Container  from "react-bootstrap/Container";
 import axios from 'axios';
 
-export default class StudentRequest extends Component {
+export default class AddPanel extends Component {
 
     constructor(props){
         super(props);
@@ -37,9 +37,9 @@ export default class StudentRequest extends Component {
         }
         console.log(data);
 
-        axios.post("http://localhost:8050/req_supervisor/add",data).then((res) => {
+        axios.post("http://localhost:8050/panel/add",data).then((res) => {
             if(res.data.success){
-                alert("Request Sent Successfully!")
+                alert("Panel Added Successfully!")
                 this.setState(
                     {
                         panelID:"",

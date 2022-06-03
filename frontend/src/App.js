@@ -12,6 +12,9 @@ import TopicsList from './pages/supervisor/TopicsList';
 import TopicView from './pages/supervisor/TopicView';
 import TopicRequest from './pages/supervisor/TopicRequest';
 import StudentRequestList from './pages/supervisor/StudentRequestList';
+import StudentRequest from './pages/supervisor/StudentRequest';
+import StudentRequestView from  './pages/supervisor/StudentRequestView';
+import Edit from './pages/supervisor/Edit';
 
 const App = () => {
   return (
@@ -28,7 +31,11 @@ const App = () => {
             <Route path="/topics-list" element={<TopicsList/> } />
             <Route path="/topics-view" element={<TopicView/> } />
             <Route path="/request-list" element={<StudentRequestList/> } />
-            
+            <Route path="/request" element={<StudentRequest/> } />
+            <Route path="/request-list/edit/:id" element={<StudentRequestView/> } />
+            {/* <Route path="/edit" exact component={Edit} /> */}
+            <Route path="/edit/:id" element={<Edit/> } />
+
           </Switch>
         </Layout>
       </AuthContextProvider>

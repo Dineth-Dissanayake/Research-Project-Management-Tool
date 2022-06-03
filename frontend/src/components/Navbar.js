@@ -1,14 +1,16 @@
 import { useContext } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './supervisor/nav_bar.css';
-import logo from './supImages/nav_logo.png'
-
+import logo from './supImages/nav_logo.png';
+import { BsFillPersonFill } from "react-icons/bs";
+import {useState} from 'react';
 import AuthContext from '../context/AuthContext';
 import ToastContext from '../context/ToastContext';
 
 
 const Navbar = () => {
 
+  const [isActive,setIsActive] = useState(false)
   const {user, setUser} = useContext(AuthContext);
   const { toast } = useContext(ToastContext);
 
@@ -41,13 +43,23 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link className='nav-link item-color' to="/marking-schema">Marking Schema</Link>
               </li>
-              <li className="nav-item" onClick={() => {
+              <li className="nav-item" >
+                <div className="dropdown-nav">
+                        <div className="dropdown-nav-btn" id="dropdownMenuButton" onClick={e => setIsActive(!isActive)}>
+                        <BsFillPersonFill /> {user.name}
+                        </div>
+                            {isActive && (
+                            <div className="dropdown-nav-content">
+                                <div className="dropdown-nav-item" onClick={() => {
                 setUser(null);
                 localStorage.clear();
                 toast.success("Logged Out");
                 navigate("/login", { replace: true });
-              }}>
-                <button className='btn btn-danger'>Logout</button>
+              }}>Logout</div>
+                                <div className="dropdown-nav-item">profile</div>
+                            </div>
+                            )}
+                        </div>
               </li>
               
             </>

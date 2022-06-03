@@ -1,0 +1,40 @@
+        <!-- <div className="container">
+            
+       <table className="table table-striped">
+            <thead className="thead-dark text-center">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Specialization</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody className="text-center">
+                
+                <tr>
+                <th scope="row">1</th>
+                    <td>Software Engineering</td>
+                    <td>Android</td>
+                    <td>#</td>
+                    <td><div className="dropdown">
+                        <div className="dropdown-btn" id="dropdownMenuButton" onClick={e => setIsActive(!isActive)}>
+                            Dropdown button <AiFillCaretDown />
+                        </div>
+                            {isActive && (
+                            <div className="dropdown-content">
+                            <Link to="/topics-view">
+                                <div className="dropdown-item">view topic</div>
+                            </Link>
+                                <div className="dropdown-item">edit topic</div>
+                                <div className="dropdown-item">delete topic</div>
+                                <div className="dropdown-item">reject</div>
+                                <div className="dropdown-item">approve</div>
+                            </div>
+                            )}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div> -->

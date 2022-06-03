@@ -42,9 +42,9 @@ export default class StudentRequestView extends Component {
         }
         console.log(data);
 
-        axios.put('http://localhost:8050/panel/update/'+id ,data).then((res) => {
+        axios.put('http://localhost:8050/req_supervisor/update/'+id ,data).then((res) => {
             if(res.data.success){
-                alert("Panel Updated Successfully!")
+                alert("Data Updated Successfully!")
                 this.setState(
                     {
                         specialization:"",
@@ -60,33 +60,33 @@ export default class StudentRequestView extends Component {
         })
     }
 
-    // componentDidMount(){
-    //     const id = this.props.match.params.id;
+    componentDidMount(){
+        const id = this.props.match.params.id;
 
-    //     axios.get('http://localhost:8050/req_supervisor/'+id).then((res) => {
-    //         if(res.data.success){
-    //             this.setState({
-    //                 specialization:res.data.RequestSupervisor.specialization,
-    //                 topic:res.data.RequestSupervisor.topic,
-    //                 studentName1:res.data.RequestSupervisor.studentName1,
-    //                 studentName2:res.data.RequestSupervisor.studentName2,
-    //                 studentName3:res.data.RequestSupervisor.studentName3,
-    //                 studentName4:res.data.RequestSupervisor.studentName4,
-    //                 requestStatus:res.data.RequestSupervisor.requestStatus
-    //             });
-    //             console.log(this.state.RequestSupervisor);
-    //         }
-    //     });
-    // }
+        axios.get('http://localhost:8050/req_supervisor/'+id).then((res) => {
+            if(res.data.success){
+                this.setState({
+                    specialization:res.data.RequestSupervisor.specialization,
+                    topic:res.data.RequestSupervisor.topic,
+                    studentName1:res.data.RequestSupervisor.studentName1,
+                    studentName2:res.data.RequestSupervisor.studentName2,
+                    studentName3:res.data.RequestSupervisor.studentName3,
+                    studentName4:res.data.RequestSupervisor.studentName4,
+                    requestStatus:res.data.RequestSupervisor.requestStatus
+                });
+                console.log(this.state.RequestSupervisor);
+            }
+        });
+    }
 
 
     render() {
         return (
             <Container>
-                <br></br><br></br><h4>Consider Request</h4><br></br><hr></hr><br></br>
+                <br></br><br></br><h4>Change Request</h4><br></br><hr></hr><br></br>
             <form className="row g-3">
                     <div className="col-md-6">
-                        <label className="form-label">Panel ID</label>
+                        <label className="form-label">specialization</label>
                         <input type="text" className="form-control" name="specialization" placeholder="Enter Panel ID"
                             value={this.state.specialization}
                             onChange={this.handleInputChange} />
@@ -132,6 +132,7 @@ export default class StudentRequestView extends Component {
                             value={this.state.requestStatus}
                             onChange={this.handleInputChange} />
                     </div>
+
                     <br/><br/>
                     <hr/>
                     <br></br><br></br>
@@ -141,7 +142,7 @@ export default class StudentRequestView extends Component {
                     </div>
             </form>
             <br/><br/><br/><br/>
-            </Container>
+        </Container>
             
         )
     }

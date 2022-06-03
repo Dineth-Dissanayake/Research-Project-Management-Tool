@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Container  from "react-bootstrap/Container";
 import axios from 'axios';
 
-export default class StudentRequest extends Component {
+export default class EditPanel extends Component {
 
     constructor(props){
         super(props);
@@ -26,6 +26,7 @@ export default class StudentRequest extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
+        const id = this.props.match.params.id;
 
         const {panelID,member1,member2,member3,panelType} = this.state;
         const data = {
@@ -37,9 +38,9 @@ export default class StudentRequest extends Component {
         }
         console.log(data);
 
-        axios.post("http://localhost:8050/req_supervisor/add",data).then((res) => {
+        axios.put('http://localhost:8050/panel/update/'+id ,data).then((res) => {
             if(res.data.success){
-                alert("Request Sent Successfully!")
+                alert("Panel Updated Successfully!")
                 this.setState(
                     {
                         panelID:"",
@@ -52,6 +53,24 @@ export default class StudentRequest extends Component {
             }
         })
     }
+
+    componentDidMount(){
+        const id = this.props.match.params.id;
+
+        axios.get('http://localhost:8050/panel/'+id).then((res) => {
+            if(res.data.success){
+                this.setState({
+                    panelID:res.data.RequestSupervisor.panelID,
+                    member1:res.data.RequestSupervisor.member1,
+                    member2:res.data.RequestSupervisor.member2,
+                    member3:res.data.RequestSupervisor.member3,
+                    panelType:res.data.RequestSupervisor.panelType
+                });
+                console.log(this.state.RequestSupervisor);
+            }
+        });
+    }
+
 
     render() {
         return (
@@ -97,7 +116,7 @@ export default class StudentRequest extends Component {
                     <br></br><br></br>
 
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>ADD PANEL</button>
+                        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>UPDATE PANEL</button>
                     </div>
             </form>
             <br/><br/><br/><br/>

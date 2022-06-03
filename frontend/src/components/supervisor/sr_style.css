@@ -52,3 +52,11 @@ body{
 .table{
     margin-top: 50px;
 }
+
+.db-color{
+    background-color: #6692FF;
+}
+
+.db-color:hover{
+    background-color: #6692FF;
+}
