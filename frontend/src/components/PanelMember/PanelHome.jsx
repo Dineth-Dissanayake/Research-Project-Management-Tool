@@ -1,7 +1,6 @@
 import React, { Component} from 'react';
 import axios from "axios";
 import { Container, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default class PanelHome extends Component {
     constructor(props){
