@@ -1,0 +1,52 @@
+{
+  "Header": {
+    "title": "SLIIT-RPM",
+    "paragraph": "Forth Year Research Project Management Tool"
+  },
+  "About": {
+    "paragraph": " We have introduced this term specifically for the SLIIT Fourth Year Research Project.  Here you will be able to easily manage your research project.  Here you can easily manage your research project online by providing solutions to existing problems.  This allows students, supervisors, co supervisors and panel members to easily interact with each other and get things done."
+    
+  },
+  "Gallery": [
+    {
+      "title": "",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-large.jpg"
+    },
+    {
+      "title": "",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/portfolio/02-large.jpg"
+    },
+    {
+      "title": "",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-large.jpg"
+    }
+  ],
+  
+
+  "Contact": {
+    "address": " SLIIT Malabe Campus, New Kandy Rd, Malabe 10115 ",
+    "phone": "+1 123 456 1234",
+    "email": "sliiit@RPM.com"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Chat With Group"
+    },
+    {
+      "icon": "fa fa-cogs",
+      "title": "Manage Project"
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Manage Research Groups"
+    },
+    {
+      "icon": "fa fa-info",
+      "title": "Keep Updated"
+    }
+  ]
+}
