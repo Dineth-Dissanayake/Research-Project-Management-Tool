@@ -7,11 +7,13 @@ export default class StudentRequest extends Component {
     constructor(props){
         super(props);
         this.state={
-            panelID:"",
-            member1:"",
-            member2:"",
-            member3:"",
-            panelType:""
+            specialization:"",
+            topic:"",
+            studentName1:"",
+            studentName2:"",
+            studentName3:"",
+            studentName4:"",
+            requestStatus:""
         }
     }
 
@@ -27,13 +29,15 @@ export default class StudentRequest extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const {panelID,member1,member2,member3,panelType} = this.state;
+        const {specialization,topic,studentName1,studentName2,studentName3,studentName4,requestStatus} = this.state;
         const data = {
-            panelID:panelID,
-            member1:member1,
-            member2:member2,
-            member3:member3,
-            panelType:panelType
+            specialization:specialization,
+            topic:topic,
+            studentName1:studentName1,
+            studentName2:studentName2,
+            studentName3:studentName3,
+            studentName4:studentName4,
+            requestStatus:requestStatus
         }
         console.log(data);
 
@@ -42,11 +46,13 @@ export default class StudentRequest extends Component {
                 alert("Request Sent Successfully!")
                 this.setState(
                     {
-                        panelID:"",
-                        member1:"",
-                        member2:"",
-                        member3:"",
-                        panelType:""
+                        specialization:"",
+                        topic:"",
+                        studentName1:"",
+                        studentName2:"",
+                        studentName3:"",
+                        studentName4:"",
+                        requestStatus:""
                     }
                 )
             }
@@ -56,39 +62,46 @@ export default class StudentRequest extends Component {
     render() {
         return (
             <Container>
-                <br></br><br></br><h4>ADD NEW PANEL</h4><br></br><hr></hr><br></br>
+                <br></br><br></br><h4>ADD NEW REQUEST</h4><br></br><hr></hr><br></br>
             <form className="row g-3">
                     <div className="col-md-6">
-                        <label className="form-label">Panel ID</label>
-                        <input type="text" className="form-control" name="panelID" placeholder="Enter Panel ID"
-                            value={this.state.panelID}
-                            onChange={this.handleInputChange} />
+                        <label className="form-label">Specialization</label>
+                        <input type="text" className="form-control" name="specialization" placeholder="Enter Specialization"
+                            value={this.state.specialization}
+                            onChange={this.handleInputChange} required/>
                     </div>
                     <div className="col-md-6">
-                        <label className="form-label">Member 01 Name</label>
-                        <input type="text" className="form-control" name="member1" placeholder="Member 01 Name"
-                            value={this.state.member1}
+                        <label className="form-label">Enter Topic Name *Accepted</label>
+                        <input type="text" className="form-control" name="topic" placeholder="Enter Topic"
+                            value={this.state.topic}
+                            onChange={this.handleInputChange} required/>
+                    </div>
+
+                    <div className="col-md-6">
+                        <label className="form-label">Student Name *should be a team leader</label>
+                        <input type="text" className="form-control" name="studentName1" placeholder="Student 01 Name"
+                            value={this.state.studentName1}
+                            onChange={this.handleInputChange} required/>
+                    </div>
+
+                    <div className="col-md-6">
+                        <label className="form-label">Student Name 02</label>
+                        <input type="text" className="form-control" name="studentName2" placeholder="Student 02 Name"
+                            value={this.state.studentName2}
                             onChange={this.handleInputChange} />
                     </div>
 
                     <div className="col-md-6">
-                        <label className="form-label">Member 02 Name</label>
-                        <input type="text" className="form-control" name="member2" placeholder="Member 02 Name"
-                            value={this.state.member2}
+                        <label className="form-label">Student Name 03</label>
+                        <input type="text" className="form-control" name="studentName3" placeholder="Student 03 Name"
+                            value={this.state.studentName3}
                             onChange={this.handleInputChange} />
                     </div>
 
                     <div className="col-md-6">
-                        <label className="form-label">Member 03 Name</label>
-                        <input type="text" className="form-control" name="member3" placeholder="Member 03 Name"
-                            value={this.state.member3}
-                            onChange={this.handleInputChange} />
-                    </div>
-
-                    <div className="col-md-6">
-                        <label className="form-label">Panel Type</label>
-                        <input type="text" className="form-control" name="panelType" placeholder="Panel Type"
-                            value={this.state.panelType}
+                        <label className="form-label">Student Name 04</label>
+                        <input type="text" className="form-control" name="studentName4" placeholder="Student 04 Name"
+                            value={this.state.studentName4}
                             onChange={this.handleInputChange} />
                     </div>
 
