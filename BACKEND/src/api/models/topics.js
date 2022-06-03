@@ -4,29 +4,21 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const Topics = new Schema({
-    StudentName : {
+    groupid : {
         type : String,
         required : [true, "Student Name is required!"]
     },
-    StudentID : {
+    topic : {
         type : String,
         required : [true, "Student ID is required."]
     },
-    Specialization : {
+    field : {
         type : String,
         required : [true, "Specialization is required."]
     },
-    ContactNumber : {
-        type : Number,
+    des : {
+        type : String,
         required : [true, "Contact Number is required."]
-    },
-    TopicName : {
-        type : String,
-        required : [true, "Topic Name is required."]
-    },
-    TopicStatus : {
-        type : String,
-        required : true
     },
     PostedBy : {
         type : mongoose.Schema.Types.ObjectId,

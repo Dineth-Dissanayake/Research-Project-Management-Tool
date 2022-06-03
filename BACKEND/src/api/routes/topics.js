@@ -21,9 +21,9 @@ router.post('/topics/add', (req,res)=>{
 });
 
 
-//get MarkingSchemas
-router.get('/MarkingSchema', (req,res) => {
-    MarkingSchema.find().exec((err,MarkingSchema) => {
+//get Topics
+router.get('/topics', (req,res) => {
+    Topic.find().exec((err,Topic) => {
         if(err){
             return res.status(400).json({
                 error:err
@@ -31,56 +31,56 @@ router.get('/MarkingSchema', (req,res) => {
         }
         return res.status(200).json({
             success:true,
-            existingMarkingSchema:MarkingSchema
+            existingTopic:Topic
         });
     });
 });
 
 
-//get specific MarkingSchema
-router.get("/MarkingSchema/:id", (req,res) => {
-    let markingSchemaId = req.params.id;
+//get specific Topic
+router.get("/topics/:id", (req,res) => {
+    let topicId = req.params.id;
 
-    MarkingSchema.findById(markingSchemaId,(err,MarkingSchema) => {
+    Topic.findById(topicId,(err,Topic) => {
         if(err){
             return res.status(400).json({success:false, err});
         }
 
         return res.status(200).json({
             success:true,
-            MarkingSchema
+            Topic
         });
     });
 });
 
 
-//update MarkingSchema
-router.put('/MarkingSchema/update/:id',(req,res) => {
-    MarkingSchema.findByIdAndUpdate(
+//update Topic
+router.put('/topics/update/:id',(req,res) => {
+    Topic.findByIdAndUpdate(
         req.params.id,
         {
             $set:req.body
         },
-        (err,MarkingSchema) => {
+        (err,Topic) => {
             if(err){
                 return res.status(400).json({error:err});
             }
             return res.status(200).json({
-                success:"MarkingSchema Updated Successfully!🆗"
+                success:"Topic Updated Successfully!🆗"
             });
         }
     );
 });
 
 
-//delete MarkingSchema
-router.delete('/MarkingSchema/delete/:id', (req,res) => {
-    MarkingSchema.findByIdAndRemove(req.params.id).exec((err,deletedMarkingSchema) => {
+//delete Topic
+router.delete('/topics/delete/:id', (req,res) => {
+    Topic.findByIdAndRemove(req.params.id).exec((err,deletedTopic) => {
         if(err) return res.status(400).json({
-            message:"MarkingSchema Delete Unsuccessful!👎",err
+            message:"Topic Delete Unsuccessful!👎",err
         });
         return res.json({
-            message:"MarkingSchema Delete Successful!🆗",deletedMarkingSchema
+            message:"Topic Delete Successful!🆗",deletedTopic
         });
     });
 });
