@@ -69,7 +69,7 @@ export default class TopicsList extends Component {
                     <input
                         className="form-control"
                         type="search"
-                        placeholder="Search Specialization"
+                        placeholder="Search By Group ID or Field"
                         name="searchQuery"
                         onChange={this.handleSearchArea}>
                     </input>
@@ -82,10 +82,10 @@ export default class TopicsList extends Component {
             <thead className="thead-dark text-center">
                 <tr>
                         <th>#</th>
-                        <th>specialization</th>
-                        <th>topic</th>
-                        <th>student Name</th>
-                        <th>requestStatus</th>
+                        <th>Group ID</th>
+                        <th>Topic</th>
+                        <th>Field</th>
+                        <th>Request Status</th>
                         <th>Action</th>
                 </tr>
             </thead>
@@ -100,7 +100,7 @@ export default class TopicsList extends Component {
                             </td>
                             <td>{requests.topic}</td>
                             <td>{requests.field}</td>
-                            <td>{requests.des}</td>
+                            <td>{requests.requestStatus}</td>
                             <td>
 
                             <Dropdown>
@@ -124,11 +124,11 @@ export default class TopicsList extends Component {
             <br/>
             <hr></hr>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
+            {/* <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="submit" class="btn btn-outline-primary">
                     <Link to="/add">Add New Panel</Link>
                 </button> 
-            </div>
+            </div> */}
 
 
             <br></br><br/><br/>

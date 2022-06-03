@@ -90,7 +90,7 @@ export default class StudentRequest extends Component {
                         {/* <th>studentName2</th>
                         <th>studentName3</th>
                         <th>studentName4</th> */}
-                        <th>requestStatus</th>
+                        <th>request Status</th>
                         <th>Action</th>
                 </tr>
             </thead>
@@ -156,11 +156,11 @@ export default class StudentRequest extends Component {
             <br/>
             <hr></hr>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
+            {/* <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="submit" class="btn btn-outline-primary">
                     <Link to="/add">Add New Panel</Link>
                 </button> 
-            </div>
+            </div> */}
 
 
             <br></br><br/><br/>

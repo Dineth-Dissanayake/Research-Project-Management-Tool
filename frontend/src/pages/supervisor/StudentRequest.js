@@ -12,8 +12,7 @@ export default class StudentRequest extends Component {
             studentName1:"",
             studentName2:"",
             studentName3:"",
-            studentName4:"",
-            requestStatus:""
+            studentName4:""
         }
     }
 
@@ -51,8 +50,7 @@ export default class StudentRequest extends Component {
                         studentName1:"",
                         studentName2:"",
                         studentName3:"",
-                        studentName4:"",
-                        requestStatus:""
+                        studentName4:""
                     }
                 )
             }
@@ -104,6 +102,16 @@ export default class StudentRequest extends Component {
                             value={this.state.studentName4}
                             onChange={this.handleInputChange} />
                     </div>
+
+                    {/* <div className="col-md-6">
+                    <label for="requestStatus">Status</label>
+                        <select name="requestStatus" id="requestStatus">
+                        <option value={this.state.studentName4}>Accept</option>
+                        <option value={this.state.studentName4}>Reject</option>
+                        <option value={this.state.studentName4}>Pending</option>
+                        </select>
+                    </div> */}
+                   
 
                     <br/><br/>
                     <hr/>

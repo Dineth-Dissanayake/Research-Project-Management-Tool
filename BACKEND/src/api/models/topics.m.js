@@ -20,6 +20,11 @@ const Topics = new Schema({
         type : String,
         required : [true, "Description is required."]
     },
+    requestStatus : {
+        type : String,
+        default: "pending",
+        required : false
+    },
     PostedBy : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
