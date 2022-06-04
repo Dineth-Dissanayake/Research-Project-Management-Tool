@@ -15,6 +15,9 @@ import StudentRequestList from './pages/supervisor/StudentRequestList';
 import StudentRequest from './pages/supervisor/StudentRequest';
 import StudentRequestView from  './pages/supervisor/StudentRequestView';
 import Edit from './pages/supervisor/Edit';
+import PanelAlocation from './pages/PanelAlocation';
+import AddPanel from './pages/AddPanel';
+import EditPanel from './pages/EditPanel';
 
 const App = () => {
   return (
@@ -34,6 +37,9 @@ const App = () => {
             <Route path="/request" element={<StudentRequest/> } />
             <Route path="/request-list/edit/:id" element={<StudentRequestView/> } />
             {/* <Route path="/edit" exact component={Edit} /> */}
+            <Route path="/panel-management" element={PanelAlocation} />
+            <Route path="/add" exact component={AddPanel} />
+            <Route path="/edit/:id" exact component={EditPanel} />
             <Route path="/edit/:id" element={<Edit/> } />
 
           </Switch>

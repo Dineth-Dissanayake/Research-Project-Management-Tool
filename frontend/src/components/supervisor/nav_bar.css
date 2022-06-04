@@ -59,3 +59,12 @@
     background: #7c9df0;
     color: white;
 }
+
+.supervisor{
+    text-align: center;
+    width: 100%;
+    left: 0;
+    margin-right: 400px;
+    font-size: 30px;
+    color: rgb(197, 193, 193);
+}

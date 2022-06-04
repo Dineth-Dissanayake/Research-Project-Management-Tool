@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import '../components/supervisor/login.css';
 import AuthContext from "../context/AuthContext";
 import ToastContext from "../context/ToastContext";
 
@@ -33,10 +33,13 @@ const Login=()=>{
 
   return (
       <>
-          <h3>Login</h3>
+      <div className="container">
+      <div><h3 className="log-name">Login</h3></div>
+        <div className="form-cont">
+          
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="emailInput" className="form-label mt-4">Email address</label>
+            <div className="form-group ">
+              <label htmlFor="emailInput" className="form-label mt-4 input-f">Email address</label>
               <input
                 type="email"
                 className="form-control"
@@ -64,11 +67,13 @@ const Login=()=>{
               />
             </div>
             
-            <input type="submit" value="Login" className="btn btn-primary my-3" />
+            <input type="submit" value="Login" className="btn login-btn my-3" />
             
             <p> Don't have an account ? <Link to="/register">Create One</Link> </p>
 
           </form>
+          </div>
+        </div>
       </>
   );
 };

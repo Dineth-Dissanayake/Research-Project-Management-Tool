@@ -87,7 +87,7 @@ export default class TopicRequest extends Component {
                     <br></br><br></br>
 
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary" onClick={this.onSubmit}>ADD PANEL</button>
+                        <button type="submit" className="btn topic-btn" onClick={this.onSubmit}>ADD PANEL</button>
                     </div>
             </form>
             <br/><br/><br/><br/>

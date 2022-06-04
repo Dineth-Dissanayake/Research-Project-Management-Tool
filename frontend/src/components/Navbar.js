@@ -62,6 +62,8 @@ const Navbar = () => {
             </>
           ): (
             <>
+              <div className="supervisor">Supervisor Login</div>
+
               <li className="nav-item">
                 <Link className='nav-link item-color' to="/login">Login</Link>
               </li>

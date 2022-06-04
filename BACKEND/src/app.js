@@ -21,7 +21,8 @@ const requestSupervisor = require('./api/routes/reqSupervisor.r');
 app.use(requestSupervisor);
 const topics = require('./api/routes/topics.r');
 app.use(topics);
-
+const panelSchemaRoutes = require('./api/routes/panel.r');
+app.use(panelSchemaRoutes);
 // const registerSchemaRoutes = require('./api/routes/register.r');
 // app.use(registerSchemaRoutes);
 app.use("/api", require("./api/routes/user.auth.r"));
