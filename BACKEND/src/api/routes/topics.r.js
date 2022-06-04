@@ -37,11 +37,11 @@ router.get('/topics', (req,res) => {
 });
 
 
-//get specific Topic
+//get specific RequestSupervisor
 router.get("/topics/:id", (req,res) => {
-    let requestTopicsId = req.params.id;
+    let requestTopicId = req.params.id;
 
-    Topic.findById(requestTopicsId,(err,RequestTopics) => {
+    RequestTopics.findById(requestTopicId,(err,RequestTopics) => {
         if(err){
             return res.status(400).json({success:false, err});
         }

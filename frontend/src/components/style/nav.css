@@ -1,0 +1,27 @@
+.bg-color{
+    color: white;
+    background-color: #303666;
+    /* #6692FF */
+}
+
+.nav-content{
+    margin-left: 300px;
+}
+
+.image{
+    width: 70%;
+}
+
+.home-cont{
+    width: 20%;
+}
+
+.db-color{
+    background-color: #6692FF;
+    color: white;
+}
+
+.db-color:hover{
+    background-color: #6692FF;
+    color: rgb(223, 219, 219);
+}

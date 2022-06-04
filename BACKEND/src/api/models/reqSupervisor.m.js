@@ -32,6 +32,10 @@ const RequestSupervisor = new Schema({
         type : String,
         default: "pending",
         required : false
+    },
+    supervisor : {
+        type : String,
+        required : false
     }
 });
 
