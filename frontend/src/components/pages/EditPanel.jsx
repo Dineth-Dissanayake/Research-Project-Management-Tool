@@ -75,7 +75,7 @@ export default class EditPanel extends Component {
     render() {
         return (
             <Container>
-                <br></br><br></br><h4>ADD NEW PANEL</h4><br></br><hr></hr><br></br>
+                <br></br><br></br><h4>EDIT PANEL</h4><br></br><hr></hr><br></br>
             <form className="row g-3">
                     <div className="col-md-6">
                         <label className="form-label">Panel ID</label>

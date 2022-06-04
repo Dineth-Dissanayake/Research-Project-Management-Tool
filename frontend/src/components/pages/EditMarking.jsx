@@ -74,7 +74,7 @@ export default class EditMarking extends Component {
     render() {
         return (
             <Container>
-                <br></br><br></br><h4>Add New Marking Schema</h4><br></br><hr></hr><br></br>
+                <br></br><br></br><h4>Edit Marking Schema</h4><br></br><hr></hr><br></br>
             <form className="row g-3">
 
                     <div className="col-md-6">
