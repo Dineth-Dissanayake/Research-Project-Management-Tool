@@ -1,0 +1,65 @@
+.home_page{
+  min-height: calc(100vh - 100px);
+  padding: 20px;
+background-color: aqua;
+  color: #333;
+}
+.home_page h2{
+  font-size: 2rem;
+  margin: 10px 0;
+  color: teal;
+}
+.home_page p{
+  color: #777;
+  line-height: 1.5;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.home_page a{
+  color: white;
+  background: crimson;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 3px;
+  margin: 10px 0;
+  letter-spacing: 1.2px;
+}
+.home_page h3{
+  color: chocolate;
+  margin-top: 30px;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 10px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #f3ecec;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
